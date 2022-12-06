@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup Project",
+      "type": "shell",
+      "dependsOrder": "sequence",
+      "runOptions": { "runOn": "folderOpen" },
+      "dependsOn": ["Kill All Terminals", "NPM Install", "Symlink Tests", "Launch Project"]
+    },
+    {
+      "label": "Launch Project",
+      "type": "shell",
+      "dependsOrder": "parallel",
+      "dependsOn": ["Start Live Server", "Start Cypress"]
+    },
+    {
+      "label": "Kill All Terminals",
+      "command": "${command:workbench.action.terminal.killAll}"
+    },
+    {
+      "label": "NPM Install",
+      "type": "shell",
+      "command": "[ ! -d 'node_modules' ] && npm i || exit 0",
+      "windows": {
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/d", "/c"]
+          }
+        },
+        "command": "if not exist node_modules (npm i)"
+      }
+    },
+    {
+      "label": "Start Live Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Start Cypress",
+      "type": "shell",
+      "command": "npm run cy:open",
+      "presentation": {
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

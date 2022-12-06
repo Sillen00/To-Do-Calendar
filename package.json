@@ -1,0 +1,23 @@
+{
+  "name": "@plugga-tech/todo-calendar-js",
+  "description": "En inlämningsuppgift där de studerande bygger en kalenderapplikation i javascript.",
+  "version": "1.0.0",
+  "author": "Plugga Tech",
+  "scripts": {
+    "postinstall": "node cypress/support/postinstall.js",
+    "dev": "cd public && live-server --port=8080",
+    "cy:open": "cypress open --e2e --browser chrome -C cypress/cypress.config.js",
+    "cy:run": "cypress run -C cypress/cypress.config.js --browser chrome",
+    "cy:g": "npm run cy:run -- --spec '**/*.g.*'",
+    "cy:vg": "npm run cy:run -- --spec '**/*.vg.*'",
+    "test": "start-server-and-test dev http://localhost:8080 cy:run",
+    "test:g": "start-server-and-test dev http://localhost:8080 cy:g",
+    "test:vg": "start-server-and-test dev http://localhost:8080 cy:vg"
+  },
+  "devDependencies": {
+    "@plugga-tech/todo-calendar-js": "^1.0.5",
+    "cypress": "^10.8.0",
+    "live-server": "^1.2.2",
+    "start-server-and-test": "^1.14.0"
+  }
+}
