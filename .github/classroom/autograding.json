@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "G Krav",
+      "setup": "npm install",
+      "run": "npm run test:g",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 60
+    },
+    {
+      "name": "VG Krav",
+      "setup": "npm install",
+      "run": "npm run test:vg",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 40
+    }
+  ]
+}
