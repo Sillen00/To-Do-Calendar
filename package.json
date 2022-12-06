@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Plugga Tech",
   "scripts": {
-    "postinstall": "node cypress/support/postinstall.js",
+    "postinstall": "node postinstall.js",
     "dev": "cd public && live-server --port=8080",
     "cy:open": "cypress open --e2e --browser chrome -C cypress/cypress.config.js",
     "cy:run": "cypress run -C cypress/cypress.config.js --browser chrome",
