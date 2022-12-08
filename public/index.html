@@ -7,12 +7,109 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <h1>ToDo</h1>
-    </header>
+    <div class="wrapper">
+      <!-- HEADER---------------------------------------------------------->
+      <header>
+        <span>To</span>
+        <img src="./images/Checkmark-green 1.png" alt="Checkmark-green" />
+        <span>Do</span>
+      </header>
 
-    <aside>
-      
-    </aside>
+      <div class="aside-main-container">
+        <!-- ASIDE----------------------------------------------------------->
+        <aside>
+          <div class="welcome-div">
+            <p class="full-date-and-time">
+              <!--JS kod ex:måndag 2 defcember 2022 -->
+            </p>
+
+            <div class="clock-and-hand">
+              <p class="clock"><!--Klocka från JS kod --></p>
+              <img src="./images/Hardrock-hand.png" alt="Hardrock Hand" />
+            </div>
+          </div>
+
+          <div class="create-button-div">
+            <button class="createButton">
+              Skapa Todo <span> <!--Lägg in "+" symbol --> </span>
+            </button>
+          </div>
+
+          <!-- TODO POPUPS----------------------------------------------------------->
+          <div class="create-todo-popup">
+            <input type="text" class="todo-input" />Todo?
+            <input type="date" class="date-input" />
+            <button class="save-button">Spara</button>
+          </div>
+
+          <!-- TODAYS TODO--------------------------------------------------------------------------------------------------------------------------------->
+          <div class="todays-todo">
+            <div class="todays-todo-heading">
+              <p>Dagens Todo</p>
+              <p><!-- Lägg till Down arrow --></p>
+            </div>
+            <div class="todo-list">
+              <!-- Append child div "todo" från JS -->
+            </div>
+          </div>
+
+          <!-- CURRENT DAY TODO--------------------------------------------------------------------------------------------------------------------------------------->
+          <div class="current-day-todo">
+            <div class="current-day-todo-heading">
+              <p>Vald Dag Todo</p>
+              <p><!-- Lägg till Down arrow --></p>
+            </div>
+            <div class="todo-list">
+              <!-- Append child div "todo" från JS -->
+            </div>
+          </div>
+
+          <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
+          <div class="all-todo">
+            <div class="all-todo-heading">
+              <p>
+                Alla Todo
+                <span id="quantity-todos">
+                  <!-- Lägg in antal todos inom "()" -->
+                </span>
+              </p>
+              <p><!-- Lägg till Down arrow --></p>
+            </div>
+            <div class="todo-list">
+              <!-- Append child div "todo" från JS -->
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN------------------------------------------------------------------------------------------------------------------------------------------------->
+        <main>
+          <!-- MONTH DIV----------------------------------------------------------------------------------->
+          <div class="month-div">
+            <p class="back-month-arrow"><!-- Lägg till icon back arrow --></p>
+            <p class="current-month">
+              dagens månad
+              <!-- Lägg till Current month från JS -->
+            </p>
+            <p class="next-month-arrow"><!-- Lägg till icon next arrow --></p>
+          </div>
+
+          <!-- WEEKDAY DIV------------------------------------------------------------------------------>
+          <div class="weekday-div">
+            <div class="weekday">Måndag</div>
+            <div class="weekday">Tisdag</div>
+            <div class="weekday">Onsdag</div>
+            <div class="weekday">Torsdag</div>
+            <div class="weekday">Fredag</div>
+            <div class="weekday">Lördag</div>
+            <div class="weekday">Söndag</div>
+          </div>
+
+          <!-- KALENDER------------------------------------------------------------------------------------------->
+          <div class="calendar">
+            <!-- Lägg till kalender dag item via JS -->
+          </div>
+        </main>
+      </div>
+    </div>
   </body>
 </html>
