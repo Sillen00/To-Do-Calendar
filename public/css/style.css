@@ -4,6 +4,8 @@
     padding: 0;
 }
 
+
+/* ROOT VARIABLER------------------------------------------- */
 :root{
     /* Färger */
     --Primary-color:black;
@@ -18,12 +20,14 @@
     --FS-1_5: 1.5rem;
 }
 
+/* BODY------------------------- */
+
 body{
     background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;    
     color: var(--Secondary-color);
 }
 
-
+/* HEADER--------------------------------------------------- */
 
 header{
     height: var(--header-height);
@@ -40,7 +44,7 @@ header img {
     height:calc(100vh - var(--header-height));
 }
 
-/* ASIDE--------------------------------------------------- */
+/* ASIDE--------------------------------------------------------------------------------- */
 
 aside{
     width: 100%;
@@ -61,11 +65,12 @@ aside{
     display: none;
 }
 
-/* SKAPA TODO KNAPP */
+/* SKAPA TODO KNAPP ---------------------------------*/
 .create-button-div{
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-    text-align: center;
+    border-top: 2px solid var(--Secondary-color);
+    border-bottom: 2px solid var(--Secondary-color);
+    display: flex;
+    justify-content: center;
 }
 .create-button-div .createButton{
     margin: 1.5rem 0;
@@ -75,14 +80,47 @@ aside{
     font-size: var(--FS-1_5);
     color: var(--Secondary-color);
     background-color: #4eaf50;
+    border:none;
+}
 
-    display: flex;
+/* TODO POPUP---------------------*/
+.create-todo-popup{
+    display: none;
 }
 
 
+/* TODAYS TODO-------------------- */
+.todays-todo .todays-todo-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2px solid var(--Secondary-color);
+    border-bottom: 2px solid var(--Secondary-color);
+    padding: 0.4rem;
+}
+
+/* CURRENT DAY TODO */
+.current-day-todo .current-day-todo-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2px solid var(--Secondary-color);
+    border-bottom: 2px solid var(--Secondary-color);
+    padding: 0.4rem;
+}
+
+/* ALL TODO */
+.all-todo .all-todo-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2px solid var(--Secondary-color);
+    border-bottom: 2px solid var(--Secondary-color);
+    padding: 0.4rem;
+}
 
 
-/* MAIN---------------------------------------------------- */
+/* MAIN---------------------------------------------------------------------------------- */
 
 main{
     display: none;
