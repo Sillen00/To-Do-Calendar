@@ -9,7 +9,9 @@
     <script src="https://kit.fontawesome.com/ecb6c407eb.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/tablet.css" />
+    <link rel="stylesheet" href="./css/desktop.css" />
 
     <!-- JS -->
     <script src="./javascript/welcome.js"></script>
@@ -17,7 +19,6 @@
     <script src="./javascript/todos.js"></script>
     <script src="./javascript/create-todo-popup.js"></script>
     <script src="./javascript/checked-todo.js"></script>
-
   </head>
   <body>
     <div class="wrapper">
@@ -34,18 +35,20 @@
         <aside>
           <div class="welcome-div">
             <p class="full-date-and-time">
+              måndag 2 december 2222
               <!--JS kod ex:måndag 2 defcember 2022 -->
             </p>
 
             <div class="clock-and-hand">
-              <p class="clock"><!--Klocka från JS kod --></p>
+              <p class="clock"><!--Klocka från JS kod -->13:37:420</p>
               <img src="./images/Hardrock-hand.png" alt="Hardrock Hand" />
             </div>
           </div>
 
           <div class="create-button-div">
             <button class="createButton">
-              Skapa Todo <span> <!--Lägg in "+" symbol --> </span>
+              <p>Skapa Todo</p>
+              <p><i class="fa-solid fa-plus"></i></p>
             </button>
           </div>
 
@@ -60,10 +63,11 @@
           <div class="todays-todo">
             <div class="todays-todo-heading">
               <p>Dagens Todo</p>
-              <p><!-- Lägg till Down arrow --></p>
+              <p><!-- Lägg till Down arrow -->down</p>
             </div>
-            <div class="todo-list">
-              <!-- Append child div "todo" från JS -->
+            <div class="todo-content">
+              <!-- Append child div "todo" från JS -->todo item
+              <!-- Hårdkoda en mok-up-->
             </div>
           </div>
 
@@ -71,10 +75,11 @@
           <div class="current-day-todo">
             <div class="current-day-todo-heading">
               <p>Vald Dag Todo</p>
-              <p><!-- Lägg till Down arrow --></p>
+              <p><!-- Lägg till Down arrow -->down</p>
             </div>
-            <div class="todo-list">
-              <!-- Append child div "todo" från JS -->
+            <div class="todo-content">
+              <!-- Append child div "todo" från JS,-->todo item
+              <!-- Hårdkoda en mok-up-->
             </div>
           </div>
 
@@ -83,14 +88,15 @@
             <div class="all-todo-heading">
               <p>
                 Alla Todo
-                <span id="quantity-todos">
+                <span id="quantity-todos">()
                   <!-- Lägg in antal todos inom "()" -->
                 </span>
               </p>
-              <p><!-- Lägg till Down arrow --></p>
+              <p><!-- Lägg till Down arrow -->down</p>
             </div>
-            <div class="todo-list">
-              <!-- Append child div "todo" från JS -->
+            <div class="todo-content">
+              <!-- Append child div "todo" från JS -->todo item
+              <!-- Hårdkoda en mok-up-->
             </div>
           </div>
         </aside>

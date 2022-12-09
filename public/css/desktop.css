@@ -1,0 +1,13 @@
+@media (width > 1023px) {
+    aside{
+        width: 25%;
+    }
+    
+    main{
+        display: block;
+        width: 75%;
+    }
+
+
+
+}
