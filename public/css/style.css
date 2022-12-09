@@ -28,3 +28,20 @@ header{
 header img {
     height: 100%;
 }
+
+
+.aside-main-container{
+    display: flex;
+    height:calc(100vh - var(--header-height));
+}
+
+
+aside{
+    width: 100%;
+    background-color: aquamarine;
+}
+
+main{
+    display: none;
+    background-color: blueviolet; 
+}
