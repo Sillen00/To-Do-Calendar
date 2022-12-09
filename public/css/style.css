@@ -1,21 +1,26 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root{
     /* Färger */
     --Primary-color:black;
     --Secondary-color:white;
+    --green-color1: #4eaf50;
+    --green-color2: #82c784;
+
 
     /* Värden */
-    --header-height: 4rem;
+    --header-height: 5rem;
+    --FS-1: 1rem;
+    --FS-1_5: 1.5rem;
 }
 
 body{
-    margin: 0;
-    padding: 0;
     background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;    
-    /* color: var(--Secondary-color); */
+    color: var(--Secondary-color);
 }
 
 
@@ -35,13 +40,51 @@ header img {
     height:calc(100vh - var(--header-height));
 }
 
+/* ASIDE--------------------------------------------------- */
 
 aside{
     width: 100%;
-    background-color: aquamarine;
+    background-color: green;
 }
+
+.welcome-div .full-date-and-time {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: var(--FS-1_5);
+}
+
+.clock-and-hand .clock{
+    text-align: center;
+    font-size: var(--FS-1_5);
+}
+.clock-and-hand img{
+    display: none;
+}
+
+/* SKAPA TODO KNAPP */
+.create-button-div{
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+.create-button-div .createButton{
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    width: 75%;
+    border-radius: 0.5rem;
+    font-size: var(--FS-1_5);
+    color: var(--Secondary-color);
+    background-color: #4eaf50;
+
+    display: flex;
+}
+
+
+
+
+/* MAIN---------------------------------------------------- */
 
 main{
     display: none;
-    background-color: blueviolet; 
+    background-color: purple; 
 }
