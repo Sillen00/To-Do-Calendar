@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    /* Färger */
+    --Primary-color:black;
+    --Secondary-color:white;
+
+    /* Värden */
+    --header-height: 4rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;    
+    /* color: var(--Secondary-color); */
+}
+
+
+
+header{
+    height: var(--header-height);
+    text-align: center;
+}
+
+header img {
+    height: 100%;
+}
