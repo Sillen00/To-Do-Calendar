@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
-<!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/ecb6c407eb.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/ecb6c407eb.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
@@ -54,9 +57,11 @@
 
           <!-- TODO POPUPS----------------------------------------------------------->
           <div class="create-todo-popup">
-            <input type="text" class="todo-input" />Todo?
-            <input type="date" class="date-input" />
-            <button class="save-button">Spara</button>
+            <input type="text" class="todo-input" placeholder="ToDo..." />
+            <div class="popup-date-btn-container">
+              <input type="date" class="date-input" />
+              <button class="save-button">Spara</button>
+            </div>
           </div>
 
           <!-- TODAYS TODO--------------------------------------------------------------------------------------------------------------------------------->
@@ -88,7 +93,8 @@
             <div class="all-todo-heading">
               <p>
                 Alla Todo
-                <span id="quantity-todos">()
+                <span id="quantity-todos"
+                  >()
                   <!-- Lägg in antal todos inom "()" -->
                 </span>
               </p>
