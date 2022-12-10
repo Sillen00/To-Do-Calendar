@@ -1,128 +1,124 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
 /* ROOT VARIABLER------------------------------------------- */
-:root{
-    /* Färger */
-    --Primary-color:black;
-    --Secondary-color:white;
-    --green-color1: #4eaf50;
-    --green-color2: #82c784;
+:root {
+  /* Färger */
+  --Primary-color: black;
+  --Secondary-color: white;
+  --green-color1: #4eaf50;
+  --green-color2: #82c784;
 
-
-    /* Värden */
-    --header-height: 5rem;
-    --FS-1: 1rem;
-    --FS-1_5: 1.5rem;
+  /* Värden */
+  --header-height: 5rem;
+  --FS-1: 1rem;
+  --FS-1_5: 1.5rem;
 }
 
 /* BODY------------------------- */
 
-body{
-    background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;    
-    color: var(--Secondary-color);
+body {
+  background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;
+  color: var(--Secondary-color);
+  font-family: Inter, sans-serif;
 }
 
 /* HEADER--------------------------------------------------- */
 
-header{
-    height: var(--header-height);
-    text-align: center;
+header {
+  height: var(--header-height);
+  text-align: center;
 }
 
 header img {
-    height: 100%;
+  height: 100%;
 }
 
-
-.aside-main-container{
-    display: flex;
-    height:calc(100vh - var(--header-height));
+.aside-main-container {
+  display: flex;
+  height: calc(100vh - var(--header-height));
 }
 
 /* ASIDE--------------------------------------------------------------------------------- */
 
-aside{
-    width: 100%;
-    background-color: green;
+aside {
+  width: 100%;
+  background-color: green;
 }
 
 .welcome-div .full-date-and-time {
-    text-align: center;
-    margin: 1rem 0;
-    font-size: var(--FS-1_5);
+  text-align: center;
+  margin: 1rem 0;
+  font-size: var(--FS-1_5);
 }
 
-.clock-and-hand .clock{
-    text-align: center;
-    font-size: var(--FS-1_5);
+.clock-and-hand .clock {
+  text-align: center;
+  font-size: var(--FS-1_5);
 }
-.clock-and-hand img{
-    display: none;
+.clock-and-hand img {
+  display: none;
 }
 
 /* SKAPA TODO KNAPP ---------------------------------*/
-.create-button-div{
-    border-top: 2px solid var(--Secondary-color);
-    border-bottom: 2px solid var(--Secondary-color);
-    display: flex;
-    justify-content: center;
+.create-button-div {
+  border-top: 2px solid var(--Secondary-color);
+  border-bottom: 2px solid var(--Secondary-color);
+  display: flex;
+  justify-content: center;
 }
-.create-button-div .createButton{
-    margin: 1.5rem 0;
-    padding: 0.5rem;
-    width: 75%;
-    border-radius: 0.5rem;
-    font-size: var(--FS-1_5);
-    color: var(--Secondary-color);
-    background-color: #4eaf50;
-    border:none;
+.create-button-div .createButton {
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  width: 75%;
+  border-radius: 0.5rem;
+  font-size: var(--FS-1_5);
+  color: var(--Secondary-color);
+  background-color: #4eaf50;
+  border: none;
 }
 
 /* TODO POPUP---------------------*/
-.create-todo-popup{
-    display: none;
+.create-todo-popup {
+  display: none;
 }
 
-
 /* TODAYS TODO-------------------- */
-.todays-todo .todays-todo-heading{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-top: 2px solid var(--Secondary-color);
-    border-bottom: 2px solid var(--Secondary-color);
-    padding: 0.4rem;
+.todays-todo .todays-todo-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 2px solid var(--Secondary-color);
+  border-bottom: 2px solid var(--Secondary-color);
+  padding: 0.4rem;
 }
 
 /* CURRENT DAY TODO */
-.current-day-todo .current-day-todo-heading{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-top: 2px solid var(--Secondary-color);
-    border-bottom: 2px solid var(--Secondary-color);
-    padding: 0.4rem;
+.current-day-todo .current-day-todo-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 2px solid var(--Secondary-color);
+  border-bottom: 2px solid var(--Secondary-color);
+  padding: 0.4rem;
 }
 
 /* ALL TODO */
-.all-todo .all-todo-heading{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-top: 2px solid var(--Secondary-color);
-    border-bottom: 2px solid var(--Secondary-color);
-    padding: 0.4rem;
+.all-todo .all-todo-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 2px solid var(--Secondary-color);
+  border-bottom: 2px solid var(--Secondary-color);
+  padding: 0.4rem;
 }
-
 
 /* MAIN---------------------------------------------------------------------------------- */
 
-main{
-    display: none;
-    background-color: purple; 
+main {
+  display: none;
+  background-color: purple;
 }
