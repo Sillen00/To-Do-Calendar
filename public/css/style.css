@@ -79,6 +79,9 @@ aside {
   color: var(--Secondary-color);
   background-color: #4eaf50;
   border: none;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
 }
 
 /* TODO POPUP---------------------*/
@@ -121,4 +124,9 @@ aside {
 main {
   display: none;
   background-color: purple;
+}
+
+/* REUSABLE CLASSES */
+.cursor {
+  cursor: pointer;
 }
