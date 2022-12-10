@@ -1,0 +1,16 @@
+.month-div {
+  font-size: 3rem;
+  text-align: center;
+  border: 2px solid var(--Secondary-color);
+}
+
+@media (width > 768px) {
+  aside {
+    width: 25%;
+  }
+
+  main {
+    display: block;
+    width: 75%;
+  }
+}
