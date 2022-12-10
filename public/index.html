@@ -68,18 +68,27 @@
               <p>Dagens Todo</p>
               <p><i class="fa-solid fa-angle-down"></i></p>
             </div>
-            <div class="todo-content-container">
+            <!-- Append child div "todo-content" från JS -->
+            <div class="todo">
               <div class="todo-content">
-                <!-- Append child div "todo" från JS -->
-                <!-- Hårdkoda en mok-up-->
-                <div class="todo-content-todo">
-                  <p class="todo-title">Skotta snö</p>
-                  <p class="todo-date">2022-12-10</p>
-                </div>
-                <div class="todo-content-buttons">
-                  <button class="todo-button-change">Ändra</button>
-                  <button class="todo-button-delete">Ta bort</button>
-                </div>
+                <p class="todo-title">Skotta snö</p>
+                <p class="todo-date">2022-12-10</p>
+              </div>
+              <div class="todo-buttons">
+                <button class="todo-button-change">Ändra</button>
+                <button class="todo-button-delete">Ta bort</button>
+              </div>
+            </div>
+
+            <div class="todo">
+              <!-- Append child div "todo" från JS -->
+              <div class="todo-content">
+                <p class="todo-title">Skotta snö</p>
+                <p class="todo-date">2022-12-10</p>
+              </div>
+              <div class="todo-buttons">
+                <button class="todo-button-change">Ändra</button>
+                <button class="todo-button-delete">Ta bort</button>
               </div>
             </div>
           </div>
@@ -90,10 +99,8 @@
               <p>Vald Dag Todo</p>
               <p><i class="fa-solid fa-angle-down"></i></p>
             </div>
-            <div class="todo-content">
-              <!-- Append child div "todo" från JS,-->todo item
-              <!-- Hårdkoda en mok-up-->
-            </div>
+
+            <!-- Append child i "current-day-todo" för att lägga till todos -->
           </div>
 
           <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
@@ -108,10 +115,8 @@
               </p>
               <p><i class="fa-solid fa-angle-down"></i></p>
             </div>
-            <div class="todo-content">
-              <!-- Append child div "todo" från JS -->todo item
-              <!-- Hårdkoda en mok-up-->
-            </div>
+
+            <!-- Append child i "current-day-todo" för att lägga till todos -->
           </div>
         </aside>
 
