@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
-<!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/ecb6c407eb.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/ecb6c407eb.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
@@ -63,11 +66,31 @@
           <div class="todays-todo">
             <div class="todays-todo-heading">
               <p>Dagens Todo</p>
-              <p><!-- Lägg till Down arrow -->down</p>
+              <p><i class="fa-solid fa-angle-down"></i></p>
             </div>
-            <div class="todo-content">
-              <!-- Append child div "todo" från JS -->todo item
-              <!-- Hårdkoda en mok-up-->
+
+            <!-- Append child div "todo" in i "todays-todo" diven från JS -->
+            <div class="todo">
+              <div class="todo-content">
+                <p class="todo-title">Skotta snö</p>
+                <p class="todo-date">2022-12-10</p>
+              </div>
+              <div class="todo-buttons">
+                <button class="todo-button-change">Ändra</button>
+                <button class="todo-button-delete">Ta bort</button>
+              </div>
+            </div>
+
+            <!-- Append child div "todo" in i "todays-todo" diven från JS -->
+            <div class="todo">
+              <div class="todo-content">
+                <p class="todo-title">Skotta snö</p>
+                <p class="todo-date">2022-12-10</p>
+              </div>
+              <div class="todo-buttons">
+                <button class="todo-button-change">Ändra</button>
+                <button class="todo-button-delete">Ta bort</button>
+              </div>
             </div>
           </div>
 
@@ -75,12 +98,10 @@
           <div class="current-day-todo">
             <div class="current-day-todo-heading">
               <p>Vald Dag Todo</p>
-              <p><!-- Lägg till Down arrow -->down</p>
+              <p><i class="fa-solid fa-angle-down"></i></p>
             </div>
-            <div class="todo-content">
-              <!-- Append child div "todo" från JS,-->todo item
-              <!-- Hårdkoda en mok-up-->
-            </div>
+
+            <!-- Append child i "current-day-todo" för att lägga till todos -->
           </div>
 
           <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
@@ -88,16 +109,15 @@
             <div class="all-todo-heading">
               <p>
                 Alla Todo
-                <span id="quantity-todos">()
+                <span id="quantity-todos"
+                  >()
                   <!-- Lägg in antal todos inom "()" -->
                 </span>
               </p>
-              <p><!-- Lägg till Down arrow -->down</p>
+              <p><i class="fa-solid fa-angle-down"></i></p>
             </div>
-            <div class="todo-content">
-              <!-- Append child div "todo" från JS -->todo item
-              <!-- Hårdkoda en mok-up-->
-            </div>
+
+            <!-- Append child i "current-day-todo" för att lägga till todos -->
           </div>
         </aside>
 
