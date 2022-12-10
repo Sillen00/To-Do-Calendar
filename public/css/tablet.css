@@ -4,6 +4,12 @@
   border: 2px solid var(--Secondary-color);
 }
 
+.weekday-div {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+}
+
 @media (width > 768px) {
   aside {
     width: 25%;
