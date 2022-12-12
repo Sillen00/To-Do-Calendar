@@ -14,6 +14,7 @@
   --grey-color: #313131;
   --delete-btn-color: #af4e4e;
 
+
   /* Värden */
   --header-height: 5rem;
   --FS-1: 1rem;
@@ -72,6 +73,7 @@ aside {
   display: flex;
   justify-content: center;
 }
+
 .create-button-div .createButton {
   margin: 1.5rem 0;
   padding: 0.5rem;
@@ -84,11 +86,45 @@ aside {
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+}
 
 /* TODO POPUP---------------------*/
 .create-todo-popup {
   display: none;
+
+  margin: auto;
+  padding: 2rem;
+  background-color: var(--Primary-color);
+  border: 1px solid var(--Secondary-color);
+  border-radius: 0.3rem;
 }
+
+.create-todo-popup input,
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background-color: var(--grey-color);
+  color: #828282;
+  border: 1px solid var(--Secondary-color);
+}
+
+.todo-input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.popup-date-btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-button {
+  color: var(--Secondary-color);
+  background-color: var(--green-color1);
+}
+
+
+
 
 /* TODAYS TODO-------------------- */
 .todays-todo .todays-todo-heading {
@@ -98,6 +134,7 @@ aside {
   border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
   padding: 0.4rem;
+
 }
 
 .todo {
@@ -150,6 +187,7 @@ aside {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: 0.66rem;
+
 }
 
 /* CURRENT DAY TODO */
@@ -183,3 +221,4 @@ main {
 .cursor {
   cursor: pointer;
 }
+
