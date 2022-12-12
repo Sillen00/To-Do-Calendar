@@ -12,12 +12,9 @@
 }
 
 @media (width > 768px) {
-  aside {
-    width: 25%;
+  
+  main{
+    display: block;
   }
 
-  main {
-    display: block;
-    width: 75%;
-  }
 }
