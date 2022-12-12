@@ -152,7 +152,7 @@ button {
 /* TODAYS TODO----------------------------- */
 
 .todays-todo {
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: scroll;
 }
 .todays-todo::-webkit-scrollbar {
@@ -232,7 +232,7 @@ button {
 /* CURRENT DAY TODO ----------------------------*/
 
 .current-day-todo {
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: scroll;
 }
 .current-day-todo::-webkit-scrollbar {
@@ -262,7 +262,7 @@ button {
 /* ALL TODO ---------------------------*/
 
 .all-todo {
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: scroll;
 }
 .all-todo::-webkit-scrollbar {
