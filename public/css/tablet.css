@@ -17,7 +17,7 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.day {
+.dag {
   padding: 3rem 0;
   display: flex;
   justify-content: center;
@@ -31,7 +31,11 @@
   border: 0.5rem solid var(--grey-color);
 }
 
-.day:active {
+/* .day.test {
+  background-color: pink;
+} */
+
+.dag.active {
   border: 0.5rem solid var(--green-color1);
 }
 
