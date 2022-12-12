@@ -24,9 +24,9 @@
 /* BODY------------------------- */
 
 body {
-  background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;
+  background-color: var(--Primary-color);
   color: var(--Secondary-color);
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* HEADER--------------------------------------------------- */
@@ -34,6 +34,7 @@ body {
 header {
   height: var(--header-height);
   text-align: center;
+  border-bottom: 2px solid var(--Secondary-color);
 }
 
 header img {
@@ -43,13 +44,22 @@ header img {
 .aside-main-container {
   display: flex;
   height: calc(100vh - var(--header-height));
+  flex-direction: column;
 }
 
 /* ASIDE--------------------------------------------------------------------------------- */
 
 aside {
   width: 100%;
-  background-color: green;
+  background-color: var(--Primary-color);
+  border: 2px solid var(--Secondary-color);
+  border-top: none;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+aside::-webkit-scrollbar {
+  display: none;
 }
 
 .welcome-div .full-date-and-time {
@@ -76,22 +86,22 @@ aside {
 
 .create-button-div .createButton {
   margin: 1.5rem 0;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   width: 75%;
+  max-width: 16rem;
   border-radius: 0.5rem;
   font-size: var(--FS-1_5);
   color: var(--Secondary-color);
   background-color: #4eaf50;
   border: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   cursor: pointer;
 }
 
 /* TODO POPUP---------------------*/
 .create-todo-popup {
   display: none;
-
   margin: auto;
   padding: 2rem;
   background-color: var(--Primary-color);
@@ -131,10 +141,9 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
   padding: 0.4rem;
-
+  margin-bottom: 5px;
 }
 
 .todo {
@@ -198,6 +207,7 @@ button {
   border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
   padding: 0.4rem;
+  margin-bottom: 5px;
 }
 
 /* ALL TODO */
@@ -208,13 +218,14 @@ button {
   border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
   padding: 0.4rem;
+  margin-bottom: 5px;
 }
 
 /* MAIN---------------------------------------------------------------------------------- */
 
 main {
   display: none;
-  background-color: purple;
+  background-color: var(--Primary-color);
 }
 
 /* REUSABLE CLASSES */
