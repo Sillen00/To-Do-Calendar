@@ -14,7 +14,6 @@
   --grey-color: #313131;
   --delete-btn-color: #af4e4e;
 
-
   /* Värden */
   --header-height: 5rem;
   --FS-0_666: 0.666rem;
@@ -96,7 +95,7 @@ aside::-webkit-scrollbar {
   border-radius: 0.5rem;
   font-size: var(--FS-1_5);
   color: var(--Secondary-color);
-  background-color: #4eaf50;
+  background-color: var(--green-color1);
   border: none;
   display: flex;
   justify-content: space-between;
@@ -138,9 +137,6 @@ button {
   background-color: var(--green-color1);
 }
 
-
-
-
 /* TODAYS TODO-------------------- */
 .todays-todo .todays-todo-heading {
   display: flex;
@@ -151,12 +147,12 @@ button {
   padding: 0.5rem;
   margin-bottom: 5px;
 }
-.todays-todo .todays-todo-heading p:first-of-type{
+.todays-todo .todays-todo-heading p:first-of-type {
   margin-left: 1rem;
   font-size: var(--FS-1_2);
   font-weight: 600;
 }
-.todays-todo .todays-todo-heading p:last-of-type{
+.todays-todo .todays-todo-heading p:last-of-type {
   margin-right: 1rem;
 }
 
@@ -210,7 +206,6 @@ button {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
-
 }
 
 /* CURRENT DAY TODO */
@@ -225,15 +220,14 @@ button {
   margin-bottom: 5px;
 }
 
-.current-day-todo .current-day-todo-heading p:first-of-type{
+.current-day-todo .current-day-todo-heading p:first-of-type {
   margin-left: 1rem;
   font-size: var(--FS-1_2);
   font-weight: 600;
 }
-.current-day-todo .current-day-todo-heading p:last-of-type{
+.current-day-todo .current-day-todo-heading p:last-of-type {
   margin-right: 1rem;
 }
-
 
 /* ALL TODO */
 .all-todo .all-todo-heading {
@@ -247,12 +241,12 @@ button {
   margin-bottom: 5px;
 }
 
-.all-todo .all-todo-heading p:first-of-type{
+.all-todo .all-todo-heading p:first-of-type {
   margin-left: 1rem;
   font-size: var(--FS-1_2);
   font-weight: 600;
 }
-.all-todo .all-todo-heading p:last-of-type{
+.all-todo .all-todo-heading p:last-of-type {
   margin-right: 1rem;
 }
 
@@ -267,4 +261,3 @@ main {
 .cursor {
   cursor: pointer;
 }
-
