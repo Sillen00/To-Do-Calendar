@@ -11,15 +11,29 @@
   margin: 1rem 0;
 }
 
+.calendar {
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  border: 2px solid greenyellow;
+}
+
 @media (width > 768px) {
-  
-  main{
+  main {
     display: block;
   }
 
-  aside{
+  aside {
     border: 2px solid var(--Secondary-color);
     border-top: none;
   }
-
 }
