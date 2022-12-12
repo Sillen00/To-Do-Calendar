@@ -1,0 +1,23 @@
+.month-div {
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
+
+.weekday-div {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+}
+
+@media (width > 768px) {
+  aside {
+    width: 25%;
+  }
+
+  main {
+    display: block;
+    width: 75%;
+  }
+}

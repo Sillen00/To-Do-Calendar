@@ -25,6 +25,7 @@
 body {
   background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;
   color: var(--Secondary-color);
+  font-family: Inter, sans-serif;
 }
 
 /* HEADER--------------------------------------------------- */
@@ -80,7 +81,9 @@ aside {
   color: var(--Secondary-color);
   background-color: #4eaf50;
   border: none;
-}
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
 
 /* TODO POPUP---------------------*/
 .create-todo-popup {
@@ -174,4 +177,9 @@ aside {
 main {
   display: none;
   background-color: purple;
+}
+
+/* REUSABLE CLASSES */
+.cursor {
+  cursor: pointer;
 }
