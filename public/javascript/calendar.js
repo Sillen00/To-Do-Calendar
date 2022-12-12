@@ -16,12 +16,6 @@ let calendar = {
   const months = ["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December",];
 
 
-
-// function main() {
-//     calenderInfo();
-// }
-
-
 /**
  * Gets the current year, month and day and displays the current month in the calendar.
  */
