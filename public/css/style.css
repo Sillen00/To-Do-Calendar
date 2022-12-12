@@ -55,7 +55,6 @@ aside {
   width: 100%;
   background-color: var(--Primary-color);
   height: 100%;
-  overflow-y: scroll;
 }
 
 aside::-webkit-scrollbar {
@@ -138,10 +137,13 @@ button {
   background-color: var(--green-color1);
 }
 
+/* TODO LIST------------------------------------------------------------------------------------ */
 
+.todo-list{
+  overflow-y: scroll;
+}
 
-
-/* TODAYS TODO-------------------- */
+/* TODAYS TODO----------------------------- */
 .todays-todo .todays-todo-heading {
   display: flex;
   flex-direction: row;
@@ -213,7 +215,7 @@ button {
 
 }
 
-/* CURRENT DAY TODO */
+/* CURRENT DAY TODO ----------------------------*/
 .current-day-todo .current-day-todo-heading {
   display: flex;
   flex-direction: row;
@@ -235,7 +237,7 @@ button {
 }
 
 
-/* ALL TODO */
+/* ALL TODO ---------------------------*/
 .all-todo .all-todo-heading {
   display: flex;
   flex-direction: row;
