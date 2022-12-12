@@ -17,16 +17,18 @@
 
   /* Värden */
   --header-height: 5rem;
+  --FS-0_666: 0.666rem;
   --FS-1: 1rem;
+  --FS-1_2: 1.2rem;
   --FS-1_5: 1.5rem;
 }
 
 /* BODY------------------------- */
 
 body {
-  background-color: pink /*Ska vara primary color. "var(--Secondary-color)"*/;
+  background-color: var(--Primary-color);
   color: var(--Secondary-color);
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* HEADER--------------------------------------------------- */
@@ -34,6 +36,7 @@ body {
 header {
   height: var(--header-height);
   text-align: center;
+  border-bottom: 2px solid var(--Secondary-color);
 }
 
 header img {
@@ -43,25 +46,36 @@ header img {
 .aside-main-container {
   display: flex;
   height: calc(100vh - var(--header-height));
+  flex-direction: column;
 }
 
 /* ASIDE--------------------------------------------------------------------------------- */
 
 aside {
   width: 100%;
-  background-color: green;
+  background-color: var(--Primary-color);
+  height: 100%;
+  overflow-y: scroll;
 }
 
-.welcome-div .full-date-and-time {
+aside::-webkit-scrollbar {
+  display: none;
+}
+
+.welcome-div {
   text-align: center;
-  margin: 1rem 0;
+  padding: 1.5rem;
+}
+
+.full-date-and-time {
   font-size: var(--FS-1_5);
+  margin-bottom: 1rem;
 }
 
 .clock-and-hand .clock {
-  text-align: center;
   font-size: var(--FS-1_5);
 }
+
 .clock-and-hand img {
   display: none;
 }
@@ -76,22 +90,23 @@ aside {
 
 .create-button-div .createButton {
   margin: 1.5rem 0;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   width: 75%;
+  max-width: 16rem;
   border-radius: 0.5rem;
   font-size: var(--FS-1_5);
   color: var(--Secondary-color);
   background-color: #4eaf50;
   border: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   cursor: pointer;
+  font-weight: 600;
 }
 
 /* TODO POPUP---------------------*/
 .create-todo-popup {
   display: none;
-
   margin: auto;
   padding: 2rem;
   background-color: var(--Primary-color);
@@ -131,10 +146,18 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 2px solid var(--Secondary-color);
+  align-items: center;
   border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.4rem;
-
+  padding: 0.5rem;
+  margin-bottom: 5px;
+}
+.todays-todo .todays-todo-heading p:first-of-type{
+  margin-left: 1rem;
+  font-size: var(--FS-1_2);
+  font-weight: 600;
+}
+.todays-todo .todays-todo-heading p:last-of-type{
+  margin-right: 1rem;
 }
 
 .todo {
@@ -155,7 +178,7 @@ button {
 }
 
 .todo-title {
-  font-size: 1rem;
+  font-size: var(--FS-1);
   margin-bottom: 0.3rem;
 }
 
@@ -177,7 +200,7 @@ button {
   border: none;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
-  font-size: 0.66rem;
+  font-size: var(--FS-0_666);
 }
 
 .todo-button-delete {
@@ -186,7 +209,7 @@ button {
   border: none;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
-  font-size: 0.66rem;
+  font-size: var(--FS-0_666);
 
 }
 
@@ -195,26 +218,49 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.4rem;
+  padding: 0.5rem;
+  margin-bottom: 5px;
 }
+
+.current-day-todo .current-day-todo-heading p:first-of-type{
+  margin-left: 1rem;
+  font-size: var(--FS-1_2);
+  font-weight: 600;
+}
+.current-day-todo .current-day-todo-heading p:last-of-type{
+  margin-right: 1rem;
+}
+
 
 /* ALL TODO */
 .all-todo .all-todo-heading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.4rem;
+  padding: 0.5rem;
+  margin-bottom: 5px;
+}
+
+.all-todo .all-todo-heading p:first-of-type{
+  margin-left: 1rem;
+  font-size: var(--FS-1_2);
+  font-weight: 600;
+}
+.all-todo .all-todo-heading p:last-of-type{
+  margin-right: 1rem;
 }
 
 /* MAIN---------------------------------------------------------------------------------- */
 
 main {
   display: none;
-  background-color: purple;
+  background-color: var(--Primary-color);
 }
 
 /* REUSABLE CLASSES */

@@ -1,4 +1,8 @@
 @media (width > 1023px) {
+  .aside-main-container{
+    flex-direction: row;
+  }
+  
   aside {
     width: 30%;
     min-width: 360px;

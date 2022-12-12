@@ -12,12 +12,14 @@
 }
 
 @media (width > 768px) {
-  aside {
-    width: 25%;
+  
+  main{
+    display: block;
   }
 
-  main {
-    display: block;
-    width: 75%;
+  aside{
+    border: 2px solid var(--Secondary-color);
+    border-top: none;
   }
+
 }
