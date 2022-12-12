@@ -17,7 +17,9 @@
 
   /* Värden */
   --header-height: 5rem;
+  --FS-0_666: 0.666rem;
   --FS-1: 1rem;
+  --FS-1_2: 1.2rem;
   --FS-1_5: 1.5rem;
 }
 
@@ -52,8 +54,6 @@ header img {
 aside {
   width: 100%;
   background-color: var(--Primary-color);
-  border: 2px solid var(--Secondary-color);
-  border-top: none;
   height: 100%;
   overflow-y: scroll;
 }
@@ -62,16 +62,20 @@ aside::-webkit-scrollbar {
   display: none;
 }
 
-.welcome-div .full-date-and-time {
+.welcome-div {
   text-align: center;
-  margin: 1rem 0;
+  padding: 1.5rem;
+}
+
+.full-date-and-time {
   font-size: var(--FS-1_5);
+  margin-bottom: 1rem;
 }
 
 .clock-and-hand .clock {
-  text-align: center;
   font-size: var(--FS-1_5);
 }
+
 .clock-and-hand img {
   display: none;
 }
@@ -97,6 +101,7 @@ aside::-webkit-scrollbar {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  font-weight: 600;
 }
 
 /* TODO POPUP---------------------*/
@@ -141,9 +146,18 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.4rem;
+  padding: 0.5rem;
   margin-bottom: 5px;
+}
+.todays-todo .todays-todo-heading p:first-of-type{
+  margin-left: 1rem;
+  font-size: var(--FS-1_2);
+  font-weight: 600;
+}
+.todays-todo .todays-todo-heading p:last-of-type{
+  margin-right: 1rem;
 }
 
 .todo {
@@ -164,7 +178,7 @@ button {
 }
 
 .todo-title {
-  font-size: 1rem;
+  font-size: var(--FS-1);
   margin-bottom: 0.3rem;
 }
 
@@ -186,7 +200,7 @@ button {
   border: none;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
-  font-size: 0.66rem;
+  font-size: var(--FS-0_666);
 }
 
 .todo-button-delete {
@@ -195,7 +209,7 @@ button {
   border: none;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
-  font-size: 0.66rem;
+  font-size: var(--FS-0_666);
 
 }
 
@@ -204,21 +218,42 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.4rem;
+  padding: 0.5rem;
   margin-bottom: 5px;
 }
+
+.current-day-todo .current-day-todo-heading p:first-of-type{
+  margin-left: 1rem;
+  font-size: var(--FS-1_2);
+  font-weight: 600;
+}
+.current-day-todo .current-day-todo-heading p:last-of-type{
+  margin-right: 1rem;
+}
+
 
 /* ALL TODO */
 .all-todo .all-todo-heading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.4rem;
+  padding: 0.5rem;
   margin-bottom: 5px;
+}
+
+.all-todo .all-todo-heading p:first-of-type{
+  margin-left: 1rem;
+  font-size: var(--FS-1_2);
+  font-weight: 600;
+}
+.all-todo .all-todo-heading p:last-of-type{
+  margin-right: 1rem;
 }
 
 /* MAIN---------------------------------------------------------------------------------- */
