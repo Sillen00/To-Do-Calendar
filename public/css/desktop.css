@@ -1,10 +1,11 @@
 @media (width > 1023px) {
   aside {
-    width: 25%;
+    width: 30%;
+    min-width: 360px;
   }
 
   main {
     display: block;
-    width: 75%;
+    width: 70%;
   }
 }
