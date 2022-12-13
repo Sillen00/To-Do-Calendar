@@ -12,4 +12,12 @@
     display: block;
     width: 70%;
   }
+
+
+  .todo{
+    width:auto;
+  }
+  .todays-todo{
+    display: block;
+  }
 }
