@@ -12,13 +12,14 @@
 }
 
 .calendar {
-  width: auto;
+  /* height: 80%; */
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
-.dag {
-  padding: 3rem 0;
+.day {
+  /* padding: 3rem 0; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,11 +32,7 @@
   border: 0.5rem solid var(--grey-color);
 }
 
-/* .day.test {
-  background-color: pink;
-} */
-
-.dag.active {
+.active {
   border: 0.5rem solid var(--green-color1);
 }
 

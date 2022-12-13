@@ -5,10 +5,9 @@ function main() {
   addEventListeners();
 }
 
-/** */
+// FUNKADE FÖR ATT MARKERA DAGAR
 function addEventListeners() {
   const days = document.querySelectorAll(".calendar div");
-  console.log(days);
   for (const day of days) {
     day.addEventListener("click", toggleDay);
   }
@@ -19,11 +18,22 @@ function addEventListeners() {
  * @param {MouseEvent} event
  */
 function toggleDay(event) {
+  const activeDay = document.querySelector(".calendar div.active");
+  activeDay?.classList.remove("active");
   const day = event.currentTarget;
-  day.classList.toggle("active");
+  day.classList.add("active");
 
-  if (day.c) {
-  }
-  //   const dayClicked = document.querySelectorAll(".day");
-  //   dayClicked.classList.toggle("active");
+  // const day = event.currentTarget;
+  // day.classList.toggle("active");
+
+  // clearClickedDay(event);
 }
+
+// function clearClickedDay(event) {
+//   const daysClicked = document.querySelectorAll(".active");
+
+//   for (const dayClicked of daysClicked) {
+//     if (dayClicked) dayClicked.classList.remove("active");
+//     dayClicked.classList.add("active");
+//   }
+// }
