@@ -1,41 +1,52 @@
-window.addEventListener("DOMContentLoaded", calenderInfo)
+window.addEventListener("DOMContentLoaded", calenderInfo);
 
 /**
- * Creates an object with the current date, year, month and day.
+ * Creates an object with the current date, year, month and day. 
  */
 let calendar = {
-    date: new Date(),
-    year: null,
-    month: null,
-    day: null,
-  };
-  
-  /**
-   * Array with the months of the year.
-   */
-  const months = ["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December",];
+  date: new Date(),
+  year: null,
+  month: null,
+  day: null,
+};
 
+/**
+ * Array with the months of the year.
+ */
+const months = [
+  "Januari",
+  "Februari",
+  "Mars",
+  "April",
+  "Maj",
+  "Juni",
+  "Juli",
+  "Augusti",
+  "September",
+  "Oktober",
+  "November",
+  "December",
+];
 
 /**
  * Gets the current year, month and day and displays the current month in the calendar.
  */
-  function calenderInfo() {
-    // addEventListeners();
-    calendar.year = calendar.date.getFullYear();
-    calendar.month = calendar.date.getMonth();
-    calendar.day = calendar.date.getDate();
-    
-    let displayCurrentMonth = document.getElementById("displayCurrentMonth");
-    displayCurrentMonth.innerHTML = months[calendar.month];
-    drawCurrentMonth();
+function calenderInfo() {
+  changeMonths();
+  calendar.year = calendar.date.getFullYear();
+  calendar.month = calendar.date.getMonth();
+  calendar.day = calendar.date.getDate();
+
+
+  drawCurrentMonth();
 }
 
 /**
  * Adds event listeners to the buttons that changes the month.
  */
-function changeMonths(){
-    document.getElementById("previousMonthButton").addEventListener("click", monthBack);
-    document.getElementById("nextMonthButton").addEventListener("click", monthForward);
+function changeMonths() {
+  document.getElementById("monthBackArrow").addEventListener("click", monthBack);
+  document.getElementById("monthForwardArrow").addEventListener("click", monthForward);
 }
 
 /**
@@ -49,7 +60,7 @@ function monthForward() {
     calendar.month++;
   }
   calendar.date = new Date(calendar.year, calendar.month, 1);
-  drawCurrentMonth()
+  drawCurrentMonth();
 }
 
 /**
@@ -63,17 +74,12 @@ function monthBack() {
     calendar.month--;
   }
   calendar.date = new Date(calendar.year, calendar.month, 1);
-  drawCurrentMonth()
-
+  drawCurrentMonth();
 }
 /**
  * Displays the current month and year in the calendar.
  */
 function drawCurrentMonth() {
-        document.getElementById("displayCurrentMonth").innerText =
-      months[calendar.month] + " " + +calendar.year;
-  
-  }
-
-
-
+  document.getElementById("displayCurrentMonth").innerText =
+    months[calendar.month] + " " + +calendar.year;
+}
