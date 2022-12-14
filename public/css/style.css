@@ -57,7 +57,6 @@ aside {
   flex-direction: column;
 }
 
-
 .welcome-div {
   text-align: center;
   padding: 1.5rem;
@@ -102,9 +101,8 @@ aside {
 
 /* TODO POPUP---------------------*/
 .create-todo-popup {
-  position: absolute;
-  display: none;
   width: 100%;
+  display: none;
   top: 215px;
   left: 0;
   margin: auto;
@@ -112,6 +110,10 @@ aside {
   background-color: var(--Primary-color);
   border: 1px solid var(--Secondary-color);
   z-index: 100;
+}
+
+.hide-popup {
+  display: block;
 }
 
 .create-todo-popup input,
@@ -136,10 +138,8 @@ button {
 .save-button {
   color: var(--Secondary-color);
   background-color: var(--green-color1);
+  cursor: pointer;
 }
-
-
-
 
 /* TODO LIST------------------------------------------------------------------------------------ */
 
@@ -173,7 +173,7 @@ button {
   margin-bottom: 5px;
 }
 
-.no-top-border{
+.no-top-border {
   border-top: none;
 }
 
@@ -240,7 +240,6 @@ button {
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
 }
-
 
 /* MAIN---------------------------------------------------------------------------------- */
 

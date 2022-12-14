@@ -51,21 +51,20 @@
             </div>
 
             <div class="create-button-div">
-              <button class="createButton">
+              <button id="create-todo-button" class="createButton">
                 <p>Skapa Todo</p>
                 <p><i class="fa-solid fa-plus"></i></p>
               </button>
             </div>
-            
+
             <!-- TODO POPUPS----------------------------------------------------------->
-            <div class="create-todo-popup">
+            <div id="todo-popup" class="create-todo-popup">
               <input type="text" class="todo-input" placeholder="ToDo..." />
               <div class="popup-date-btn-container">
                 <input type="date" class="date-input" />
                 <button class="save-button">Spara</button>
               </div>
             </div>
-
           </div>
 
           <!-- TODAYS TODO--------------------------------------------------------------------------------------------------------------------------------->
@@ -98,7 +97,6 @@
             <div class="todo-container" id="current-day-todo">
               <!-- Append child i "current-day-todo" för att lägga till todos -->
             </div>
-
 
             <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
             <div class="todo-heading">
