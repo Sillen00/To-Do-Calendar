@@ -1,4 +1,14 @@
 @media (width > 1023px) {
+  .clock-and-hand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clock-and-hand img {
+    display: block;
+  }
+  
   .aside-main-container{
     flex-direction: row;
   }
