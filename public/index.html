@@ -51,18 +51,23 @@
             </div>
 
             <div class="create-button-div">
-              <button id="create-todo-button" class="createButton">
+              <button id="createTodoButton" class="createButton">
                 <p>Skapa Todo</p>
                 <p><i class="fa-solid fa-plus"></i></p>
               </button>
             </div>
 
             <!-- TODO POPUPS----------------------------------------------------------->
-            <div id="todo-popup" class="create-todo-popup">
-              <input type="text" class="todo-input" placeholder="ToDo..." />
+            <div id="todoPopup" class="create-todo-popup">
+              <input
+                type="text"
+                id="todoInput"
+                class="todo-input"
+                placeholder="ToDo..."
+              />
               <div class="popup-date-btn-container">
                 <input type="date" class="date-input" />
-                <button class="save-button">Spara</button>
+                <button id="saveButton" class="save-button">Spara</button>
               </div>
             </div>
           </div>
@@ -74,7 +79,7 @@
               <p><i class="fa-solid fa-angle-down"></i></p>
             </div>
 
-            <div class="todo-container" id="todays-todo">
+            <div class="todo-container" id="todaysTodo">
               <!-- Append child div "todo" in i "todays-todo" diven från JS -->
               <div class="todo">
                 <div class="todo-content">
