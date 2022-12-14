@@ -17,7 +17,7 @@
   .todo{
     width:auto;
   }
-  .todays-todo{
+  .todo-container{
     display: block;
   }
 }
