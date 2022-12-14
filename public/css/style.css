@@ -92,7 +92,7 @@ aside {
   border-radius: 0.5rem;
   font-size: var(--FS-1_5);
   color: var(--Secondary-color);
-  background-color: #4eaf50;
+  background-color: var(--green-color1);
   border: none;
   display: flex;
   justify-content: space-between;
@@ -138,6 +138,9 @@ button {
   background-color: var(--green-color1);
 }
 
+
+
+
 /* TODO LIST------------------------------------------------------------------------------------ */
 
 .todo-list {
@@ -168,11 +171,13 @@ button {
   padding: 0.5rem;
   margin-bottom: 5px;
 }
+
 .todays-todo-heading p:first-of-type {
   margin-left: 1rem;
   font-size: var(--FS-1_2);
   font-weight: 600;
 }
+
 .todays-todo-heading p:last-of-type {
   margin-right: 1rem;
 }
@@ -256,6 +261,7 @@ button {
   font-size: var(--FS-1_2);
   font-weight: 600;
 }
+
 .current-day-todo-heading p:last-of-type {
   margin-right: 1rem;
 }
@@ -286,6 +292,7 @@ button {
   font-size: var(--FS-1_2);
   font-weight: 600;
 }
+
 .all-todo-heading p:last-of-type {
   margin-right: 1rem;
 }
