@@ -1,8 +1,9 @@
 .month-div {
   font-size: 3rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0.5rem 0;
+  margin: 0 3rem;
 }
 
 .weekday-div {
@@ -12,24 +13,21 @@
 }
 
 .calendar {
-  /* height: 80%; */
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
 }
 
 .day {
-  /* padding: 3rem 0; */
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 0.5rem solid black;
 }
 
 .day:hover {
   background-color: var(--grey-color);
-  border: 0.5rem solid var(--grey-color);
 }
 
 .active {
@@ -37,12 +35,12 @@
 }
 
 @media (width > 768px) {
-  main {
-    display: block;
-  }
-
   aside {
     border: 2px solid var(--Secondary-color);
     border-top: none;
+  }
+
+  main {
+    display: block;
   }
 }

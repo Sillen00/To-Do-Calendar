@@ -5,7 +5,7 @@ function main() {
   selectDay();
 }
 
-/** Ger användaren möjligheten att välja önskad dag i kalendern. */
+/** Loopar över alla månadens dagar och ger användaren möjligheten att välja önskad dag i kalendern. */
 function selectDay() {
   const days = document.querySelectorAll(".calendar div");
   for (const day of days) {
