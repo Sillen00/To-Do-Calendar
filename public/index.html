@@ -68,53 +68,60 @@
 
           </div>
 
-          <!-- TODAYS TODO--------------------------------------------------------------------------------------------------------------------------------->
           <div class="todo-list">
-            <div class="todo-heading no-top-border">
-              <p>Dagens Todo</p>
-              <p><i class="fa-solid fa-angle-down"></i></p>
-            </div>
-
-            <div class="todo-container" id="todays-todo">
-              <!-- Append child div "todo" in i "todays-todo" diven från JS -->
-              <div class="todo">
-                <div class="todo-content">
-                  <p class="todo-title">Skotta snö</p>
-                  <p class="todo-date">2022-12-10</p>
-                </div>
-                <div class="todo-buttons">
-                  <button class="todo-button-change">Ändra</button>
-                  <button class="todo-button-delete">Ta bort</button>
+            <!-- TODAYS TODO--------------------------------------------------------------------------------------------------------------------------------->
+            <div class="todo-section">
+              <div class="todo-heading no-top-border">
+                <p>Dagens Todo</p>
+                <p><i class="fa-solid fa-angle-down"></i></p>
+              </div>
+  
+              <div class="todo-container" id="todays-todo">
+                <!-- Append child div "todo" in i "todays-todo" diven från JS -->
+                <div class="todo">
+                  <div class="todo-content">
+                    <p class="todo-title">Skotta snö</p>
+                    <p class="todo-date">2022-12-10</p>
+                  </div>
+                  <div class="todo-buttons">
+                    <button class="todo-button-change">Ändra</button>
+                    <button class="todo-button-delete">Ta bort</button>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- CURRENT DAY TODO--------------------------------------------------------------------------------------------------------------------------------------->
-            <div class="todo-heading">
-              <p>Vald Dag Todo</p>
-              <p><i class="fa-solid fa-angle-down"></i></p>
-            </div>
-
-            <div class="todo-container" id="current-day-todo">
-              <!-- Append child i "current-day-todo" för att lägga till todos -->
+            <div class="todo-section">
+              <div class="todo-heading">
+                <p>Vald Dag Todo</p>
+                <p><i class="fa-solid fa-angle-down"></i></p>
+              </div>
+  
+              <div class="todo-container" id="current-day-todo">
+                <!-- Append child i "current-day-todo" för att lägga till todos -->
+              </div>
             </div>
 
 
             <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
-            <div class="todo-heading">
-              <p>
-                Alla Todo
-                <span id="quantity-todos"
-                  >()
-                  <!-- Lägg in antal todos inom "()" -->
-                </span>
-              </p>
-              <p><i class="fa-solid fa-angle-down"></i></p>
+            <div class="todo-section">
+              <div class="todo-heading">
+                <p>
+                  Alla Todo
+                  <span id="quantity-todos"
+                    >()
+                    <!-- Lägg in antal todos inom "()" -->
+                  </span>
+                </p>
+                <p><i class="fa-solid fa-angle-down"></i></p>
+              </div>
+  
+              <div class="todo-container" id="all-todo">
+                <!-- Append child i "current-day-todo" för att lägga till todos -->
+              </div>
             </div>
 
-            <div class="todo-container" id="all-todo">
-              <!-- Append child i "current-day-todo" för att lägga till todos -->
-            </div>
           </div>
         </aside>
 
