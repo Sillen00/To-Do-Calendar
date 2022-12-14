@@ -158,6 +158,16 @@ button {
   max-height: 300px;
   overflow-y: scroll;
 }
+
+.todo-section.accordion .todo-container{
+  display: none;
+}
+
+.todo-section.accordion .todo-heading p:last-of-type{
+  transform: rotate(-90deg);
+  transition: 0.4s;
+}
+
 .todo-container::-webkit-scrollbar {
   display: none;
 }
