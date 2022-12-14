@@ -152,36 +152,42 @@ button {
   display: none;
 }
 
-/* TODAYS TODO----------------------------- */
+/* TODO CONTAINER--------------------------------- */
 
-.todays-todo {
+.todo-container {
   max-height: 300px;
   overflow-y: scroll;
 }
-.todays-todo::-webkit-scrollbar {
+.todo-container::-webkit-scrollbar {
   display: none;
 }
 
-.todays-todo-heading {
+.todo-heading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
   padding: 0.5rem;
   margin-bottom: 5px;
 }
 
-.todays-todo-heading p:first-of-type {
+.no-top-border{
+  border-top: none;
+}
+
+.todo-heading p:first-of-type {
   margin-left: 1rem;
   font-size: var(--FS-1_2);
   font-weight: 600;
 }
 
-.todays-todo-heading p:last-of-type {
+.todo-heading p:last-of-type {
   margin-right: 1rem;
 }
 
+/* TODO-----------------------------------*/
 .todo {
   padding: 0.8rem 0;
   margin: 1rem 0.5rem 0.5rem 0.5rem;
@@ -235,67 +241,6 @@ button {
   font-size: var(--FS-0_666);
 }
 
-/* CURRENT DAY TODO ----------------------------*/
-
-.current-day-todo {
-  max-height: 300px;
-  overflow-y: scroll;
-}
-.current-day-todo::-webkit-scrollbar {
-  display: none;
-}
-
-.current-day-todo-heading {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 2px solid var(--Secondary-color);
-  border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.5rem;
-  margin-bottom: 5px;
-}
-
-.current-day-todo-heading p:first-of-type {
-  margin-left: 1rem;
-  font-size: var(--FS-1_2);
-  font-weight: 600;
-}
-
-.current-day-todo-heading p:last-of-type {
-  margin-right: 1rem;
-}
-
-/* ALL TODO ---------------------------*/
-
-.all-todo {
-  max-height: 300px;
-  overflow-y: scroll;
-}
-.all-todo::-webkit-scrollbar {
-  display: none;
-}
-
-.all-todo-heading {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 2px solid var(--Secondary-color);
-  border-bottom: 2px solid var(--Secondary-color);
-  padding: 0.5rem;
-  margin-bottom: 5px;
-}
-
-.all-todo-heading p:first-of-type {
-  margin-left: 1rem;
-  font-size: var(--FS-1_2);
-  font-weight: 600;
-}
-
-.all-todo-heading p:last-of-type {
-  margin-right: 1rem;
-}
 
 /* MAIN---------------------------------------------------------------------------------- */
 
