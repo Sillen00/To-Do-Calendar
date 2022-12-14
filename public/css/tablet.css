@@ -12,14 +12,37 @@
 }
 
 @media (width > 768px) {
-  
-  main{
+  header{
+    text-align: end;
+  }
+  header img{
+    margin-right: 3rem;
+  }
+  main {
     display: block;
   }
 
-  aside{
+  aside {
     border: 2px solid var(--Secondary-color);
     border-top: none;
   }
 
+  .todays-todo-heading p:first-of-type,
+  .todays-todo-heading p:last-of-type,
+  .current-day-todo-heading p:first-of-type,
+  .current-day-todo-heading p:last-of-type,
+  .all-todo-heading p:first-of-type,
+  .all-todo-heading p:last-of-type {
+    font-size: var(--FS-1_5);
+  }
+
+  .todays-todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .todo {
+    width: 60%;
+  }
 }
