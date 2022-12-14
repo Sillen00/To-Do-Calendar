@@ -30,12 +30,10 @@ function createNewTodo() {
 
   let date = new Date();
   todaysDate = date.toLocaleString("sv-SE");
-  // console.log(todaysDate);
 
   if (todoInput === "" || dateInput === "") {
     alert("Var vänlig skriv en Todo och fyll i ett datum.");
   } else if (todaysDate.includes(dateInput)) {
-    document.getElementById("todaysTodo").appendChild(newTodo);
     newTodo.innerHTML = `
     <div class="todo-content">
         <p class="todo-title">${todoInput}</p>
@@ -46,9 +44,14 @@ function createNewTodo() {
         <button class="todo-button-delete">Ta bort</button>
     </div>
     `;
+    const todaysTodo = document.getElementById("todaysTodo");
+    todaysTodo.appendChild(newTodo);
+
+    const allTodo = document.getElementById("allTodo");
+    allTodo.appendChild(newTodo.cloneNode(true));
+
     togglePopup("click");
   } else {
-    document.getElementById("allTodo").appendChild(newTodo);
     newTodo.innerHTML = `
     <div class="todo-content">
         <p class="todo-title">${todoInput}</p>
@@ -59,6 +62,8 @@ function createNewTodo() {
         <button class="todo-button-delete">Ta bort</button>
     </div>
     `;
+    allTodo.appendChild(newTodo);
+
     togglePopup("click");
   }
   document.getElementById("todoInput").value = "";
