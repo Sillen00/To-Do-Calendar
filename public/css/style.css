@@ -55,6 +55,7 @@ aside {
   background-color: var(--Primary-color);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .welcome-div {
@@ -102,6 +103,7 @@ aside {
 /* TODO POPUP---------------------*/
 .create-todo-popup {
   width: 100%;
+  position: absolute;
   display: none;
   top: 215px;
   left: 0;
@@ -112,7 +114,7 @@ aside {
   z-index: 100;
 }
 
-.hide-popup {
+.show-popup {
   display: block;
 }
 
@@ -145,7 +147,7 @@ button {
 
 .todo-list {
   overflow-y: scroll;
-  /* -webkit-filter:blur(20px); */
+  /* -webkit-filter: blur(20px); */
 }
 
 .todo-list::-webkit-scrollbar {

@@ -12,7 +12,7 @@ function showPopup() {
 
 function togglePopup() {
   const todoPopup = document.getElementById("todoPopup");
-  todoPopup.classList.toggle("hide-popup");
+  todoPopup.classList.toggle("show-popup");
 }
 
 function addTodo() {
@@ -49,39 +49,40 @@ function createNewTodo() {
   let newTodo = document.createElement("div");
   newTodo.classList.add("todo");
 
-  let inputValue = document.getElementById("todoInput").value;
-  let todoTitle = document.createTextNode(inputValue);
+  let todoInput = document.getElementById("todoInput").value;
 
-  newTodo.appendChild(todoTitle);
-  if (inputValue === "") {
-    alert("Du måste skriva någonting...");
+  let dateInput = document.getElementById("dateInput").value;
+
+  if (todoInput === "" || dateInput === "") {
+    alert("Var vänlig skriv en Todo och fyll i ett datum.");
   } else {
     document.getElementById("todaysTodo").appendChild(newTodo);
     newTodo.innerHTML = `
     <div class="todo-content">
-                  <p class="todo-title">${inputValue.value}</p>
-                  <p class="todo-date">2022-12-10</p>
-                </div>
-                <div class="todo-buttons">
-                  <button class="todo-button-change">Ändra</button>
-                  <button class="todo-button-delete">Ta bort</button>
-                </div>
+        <p class="todo-title">${todoInput}</p>
+        <p class="todo-date">${dateInput}</p>
+    </div>
+    <div class="todo-buttons">
+        <button class="todo-button-change">Ändra</button>
+        <button class="todo-button-delete">Ta bort</button>
+    </div>
     `;
   }
   document.getElementById("todoInput").value = "";
+  document.getElementById("dateInput").value = "";
 
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  todo.appendChild(span);
+  //   let span = document.createElement("SPAN");
+  //   let txt = document.createTextNode("\u00D7");
+  //   span.className = "close";
+  //   span.appendChild(txt);
+  //   todo.appendChild(span);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-      let div = this.parentElement;
-      //   div.style.display = "none";
-    };
-  }
+  //   for (i = 0; i < close.length; i++) {
+  //     close[i].onclick = function () {
+  //       let div = this.parentElement;
+  //       //   div.style.display = "none";
+  //     };
+  //   }
 }
 
 // Create a new list item when clicking on the "Add" button
