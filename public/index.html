@@ -21,7 +21,6 @@
     <script src="./javascript/calendar.js"></script>
     <script src="./javascript/calender-days-clicked.js"></script>
     <script src="./javascript/todos.js"></script>
-    <script src="./javascript/todo-accordion.js"></script>
     <script src="./javascript/checked-todo.js"></script>
   </head>
   <body>
@@ -40,13 +39,14 @@
           <div class="aside-fixed-section">
             <div class="welcome-div">
               <p id="todaysDate" class="full-date-and-time">
-                
                 <!--JS kod ex:måndag 2 defcember 2022 -->
               </p>
 
               <div class="clock-and-hand">
-                <p id="time" class="clock"><!--Klocka från JS kod -->/p>
-                <img src="./images/Hardrock-hand.png" alt="Hardrock Hand" />
+                <p id="time" class="clock">
+                  <!--Klocka från JS kod -->/p>
+                  <img src="./images/Hardrock-hand.png" alt="Hardrock Hand" />
+                </p>
               </div>
             </div>
 
@@ -73,58 +73,30 @@
           </div>
 
           <div class="todo-list">
-            <!-- TODAYS TODO--------------------------------------------------------------------------------------------------------------------------------->
-            <div class="todo-section">
-              <div class="todo-heading no-top-border">
-                <p>Dagens Todo</p>
-                <p><i class="fa-solid fa-angle-down"></i></p>
-              </div>
-  
-              <div class="todo-container" id="todaysTodo">
-                <!-- Append child div "todo" in i "todays-todo" diven från JS -->
-                <div class="todo">
-                  <div class="todo-content">
-                    <p class="todo-title">Skotta snö</p>
-                    <p class="todo-date">2022-12-10</p>
-                  </div>
-                  <div class="todo-buttons">
-                    <button class="todo-button-change">Ändra</button>
-                    <button class="todo-button-delete">Ta bort</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- CURRENT DAY TODO--------------------------------------------------------------------------------------------------------------------------------------->
-            <div class="todo-section">
-              <div class="todo-heading">
-                <p>Vald Dag Todo</p>
-                <p><i class="fa-solid fa-angle-down"></i></p>
-              </div>
-  
-              <div class="todo-container" id="currentDayTodo">
-                <!-- Append child i "current-day-todo" för att lägga till todos -->
-              </div>
-            </div>
-
             <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
-            <div class="todo-section">
-              <div class="todo-heading">
-                <p>
-                  Alla Todo
-                  <span id="quantity-todos"
-                    >()
-                    <!-- Lägg in antal todos inom "()" -->
-                  </span>
-                </p>
-                <p><i class="fa-solid fa-angle-down"></i></p>
-              </div>
-              <div class="todo-container" id="allTodo">
-                <!-- Append child i "current-day-todo" för att lägga till todos -->
-              </div> 
-              
-              
+            <div class="todo-heading">
+              <p>
+                Todos
+                <span id="quantity-todos"
+                  >()
+                  <!-- Lägg in antal todos inom "()" -->
+                </span>
+              </p>
             </div>
+            <ul class="todo-container" id="allTodo">
+              <!-- Append child i "current-day-todo" för att lägga till todos -->
+              <li class="todo">
+                <div class="todo-content">
+                  <p class="todo-title">Skotta snö</p>
+                  <p class="todo-date">2022-12-10</p>
+                </div>
+                <div class="todo-buttons">
+                  <button class="todo-button-change">Ändra</button>
+                  <button class="todo-button-delete">Ta bort</button>
+                </div>
+              </li>
+
+            </ul>
           </div>
         </aside>
 
