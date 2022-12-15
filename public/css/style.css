@@ -57,6 +57,7 @@ aside {
   display: flex;
   flex-direction: column;
   position: relative;
+  border-bottom: 2px solid var(--Secondary-color);
 }
 
 .welcome-div {
@@ -171,7 +172,6 @@ button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 2px solid var(--Secondary-color);
   border-bottom: 2px solid var(--Secondary-color);
   padding: 0.5rem;
   margin-bottom: 5px;
@@ -181,7 +181,7 @@ button {
   border-top: none;
 }
 
-.todo-heading p:first-of-type {
+.todo-heading p {
   margin-left: 1rem;
   font-size: var(--FS-1_2);
   font-weight: 600;
@@ -243,9 +243,44 @@ button {
 
 /* MAIN---------------------------------------------------------------------------------- */
 
-main {
+.month-div {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  margin: 0 3rem;
+}
+
+.weekday-div-mobile {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+}
+
+.weekday-div {
   display: none;
-  background-color: var(--Primary-color);
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.day {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.day:hover {
+  background-color: var(--grey-color);
+}
+
+.active {
+  border: 0.5rem solid var(--green-color1);
 }
 
 /* REUSABLE CLASSES */
