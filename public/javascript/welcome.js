@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", showCurrentDay);
 
 
-
+/**This shows the current date and time in right format */
 function showCurrentDay() {
     const today = new Date();
 
@@ -9,10 +9,10 @@ function showCurrentDay() {
     let date = today.getDate();
     let month = today.getMonth();
     let year = today.getFullYear();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let time = today.toLocaleTimeString("sv-SE");
     let dayString = "";
     
-
+  
     switch (day) {
         case 0:
           dayString = "Söndag";
@@ -40,10 +40,8 @@ function showCurrentDay() {
       document.getElementById("time").innerHTML = time;
 
       setInterval(showCurrentDay, 1000);
-    }
-
-
-
+      
+}
 
 
   
