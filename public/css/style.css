@@ -161,11 +161,11 @@ button {
   overflow-y: scroll;
 }
 
-.todo-section.accordion .todo-container{
+.todo-section.accordion .todo-container {
   display: none;
 }
 
-.todo-section.accordion .todo-heading p:last-of-type{
+.todo-section.accordion .todo-heading p:last-of-type {
   transform: rotate(-90deg);
   transition: 0.4s;
 }
@@ -242,6 +242,7 @@ button {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
+  cursor: pointer;
 }
 
 .todo-button-delete {
@@ -251,6 +252,7 @@ button {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
+  cursor: pointer;
 }
 
 /* MAIN---------------------------------------------------------------------------------- */
