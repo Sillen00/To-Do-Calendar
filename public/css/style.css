@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 /* ROOT VARIABLER------------------------------------------- */
@@ -161,15 +162,6 @@ button {
   overflow-y: scroll;
 }
 
-.todo-section.accordion .todo-container {
-  display: none;
-}
-
-.todo-section.accordion .todo-heading p:last-of-type {
-  transform: rotate(-90deg);
-  transition: 0.4s;
-}
-
 .todo-container::-webkit-scrollbar {
   display: none;
 }
@@ -193,10 +185,6 @@ button {
   margin-left: 1rem;
   font-size: var(--FS-1_2);
   font-weight: 600;
-}
-
-.todo-heading p:last-of-type {
-  margin-right: 1rem;
 }
 
 /* TODO-----------------------------------*/
