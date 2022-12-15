@@ -242,7 +242,6 @@ button {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
-  cursor: pointer;
 }
 
 .todo-button-delete {
@@ -252,7 +251,6 @@ button {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
-  cursor: pointer;
 }
 
 /* MAIN---------------------------------------------------------------------------------- */
