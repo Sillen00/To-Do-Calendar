@@ -1,9 +1,8 @@
-window.addEventListener("DOMContentLoaded", createTodo);
-
 /** Startar funktionerna för skapandet av Todo.*/
-function createTodo() {
+function initTodos(){
   addEventListeners();
 }
+
 
 /** Aktiverar funktionen togglePopup vid klick av knappen på Skapa Todo.  */
 function addEventListeners() {
