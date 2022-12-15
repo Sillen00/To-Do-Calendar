@@ -9,12 +9,21 @@
     display: block;
   }
 
-  aside {
-    border: 2px solid var(--Secondary-color);
-    border-top: none;
+  .month-div {
+    font-size: 3rem;
   }
 
-  .todo-heading p:first-of-type {
+  .weekday-div-mobile {
+    display: none;
+  }
+
+  .weekday-div {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+  }
+
+  .todo-heading p {
     font-size: var(--FS-1_5);
   }
 
@@ -26,41 +35,5 @@
 
   .todo {
     width: 60%;
-  }
-
-  .month-div {
-    font-size: 3rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-    margin: 0 3rem;
-  }
-
-  .weekday-div {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 1rem 0;
-  }
-
-  .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-  }
-
-  .day {
-    height: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .day:hover {
-    background-color: var(--grey-color);
-  }
-
-  .active {
-    border: 0.5rem solid var(--green-color1);
   }
 }
