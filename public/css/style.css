@@ -162,7 +162,6 @@ button {
   overflow-y: scroll;
 }
 
-
 .todo-container::-webkit-scrollbar {
   display: none;
 }
