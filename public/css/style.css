@@ -161,11 +161,11 @@ button {
   overflow-y: scroll;
 }
 
-.todo-section.accordion .todo-container{
+.todo-section.accordion .todo-container {
   display: none;
 }
 
-.todo-section.accordion .todo-heading p:last-of-type{
+.todo-section.accordion .todo-heading p:last-of-type {
   transform: rotate(-90deg);
   transition: 0.4s;
 }
