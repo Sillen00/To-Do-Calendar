@@ -1,4 +1,8 @@
-window.addEventListener("DOMContentLoaded", calenderInfo);
+window.addEventListener("DOMContentLoaded", initCalendar);
+
+function initCalendar() {
+    calenderInfo();
+}
 
 /** Creates an object with the current date, year, month and day. */
 let calendar = {
@@ -8,56 +12,49 @@ let calendar = {
   day: null,
 };
 
+
+const kalendar = document.querySelector('.calendar');
 /** Array with the months of the year.*/
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November",  "December"];
 
 /**Array with the weekdays */
-// const weekdays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const weekdays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
 
-
-
+ 
 function renderCalenderDays() {
 const dt = new Date();
-// const nav = 0;
-
-// if (nav !== 0) {
-//   dt.setMonth(new Date().getMonth() + nav);
-// }
 
 const day = dt.getDate();
 const month = dt.getMonth();
 const year = dt.getFullYear();
 
-// 1. behöver få ut vilken dag det är på första dagen i månaden
 const firstDay = new Date(year, month, 1);
-// 2. behöver få ut hur många dagar det är i månaden
-const daysInMonth = new Date(year, month + 1, 0).getDate();   // kolla att det blir rätt måndad!!!!!
+const daysInMonth = new Date(year, month + 1, 0).getDate();   
+
+console.log(firstDay)
+console.log(daysInMonth)
 
 
-const dateString = firstDay.toLocaleDateString("en-us", {
-  weekday: "long",
-  year: "numeric",
-  month: "numeric",
-  day: "numeric"
-})
-const paddingDays = weekdays.indexOf(dateString.split(', ')[0]) -1;
-console.log(dateString)
+const paddingDays = weekdays.indexOF("Tisdag"); 
+
+console.log(paddingDays)
 
 
-console.log(paddingDays);
 
 
-// 4. behöver få ut vilken dag det är på första dagen i nästa månad
-// 5. behöver få ut hur många dagar det är i nästa månad
-// 6. behöver få ut vilken dag det är på sista dagen i nästa månad
 
-} 
-// toLocaleDateString("sv-se",)
-// paddingdays to work with sv-se
-// const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);
-// console.log(dateString)
+// const dateString = firstDay.toLocaleDateString("en-us", {
+//   weekday: "long",
+//   year: "numeric",
+//   month: "numeric",
+//   day: "numeric"
+// })
 
+
+
+}
+
+// render the calendar days in the calendar with dates
 
 /**
  * Gets the current year, month and day and displays the current month in the calendar.
