@@ -82,6 +82,11 @@ function showTodos() {
     todoItem.appendChild(todoButtons);
 
     allTodo.appendChild(todoItem);
+
+    deleteButton.addEventListener("click", (e) => {
+      todos = todos.filter((t) => t != todo);
+      showTodos();
+    });
   }
   togglePopup();
 }
