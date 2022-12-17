@@ -105,7 +105,6 @@ aside {
 /* TODO POPUP---------------------*/
 .create-todo-popup {
   width: 100%;
-  position: absolute;
   display: none;
   top: 215px;
   left: 0;
