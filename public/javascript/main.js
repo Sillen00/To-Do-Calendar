@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", main);
 
-const todos = [];
+// const todos = [];
 
 function main() {
   initWelcome();
