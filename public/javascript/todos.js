@@ -83,7 +83,10 @@ function showTodos() {
 
     allTodo.appendChild(todoItem);
   }
+  togglePopup();
 }
+
+// DAVIDS KOD
 
 // function createNewTodo(event) {
 //   event.preventDefault();
@@ -147,6 +150,8 @@ function showTodos() {
 //   document.getElementById("todoInput").value = "";
 //   document.getElementById("dateInput").value = "";
 // }
+
+// FÖRSÖK #1
 
 /** Skapar en ny Todo. (Just nu  läggs alla Todos till i Dagens Todo.) */
 // function createNewTodo() {
