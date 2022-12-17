@@ -223,13 +223,14 @@ button {
   width: 35%;
 }
 
-.todo-button-change {
+.todo-button-edit {
   background-color: var(--green-color1);
   color: var(--Secondary-color);
   border: none;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
+  cursor: pointer;
 }
 
 .todo-button-delete {
@@ -239,6 +240,7 @@ button {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
+  cursor: pointer;
 }
 
 /* MAIN---------------------------------------------------------------------------------- */
