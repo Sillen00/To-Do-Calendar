@@ -1,11 +1,11 @@
-window.addEventListener("DOMContentLoaded", main)
+window.addEventListener("DOMContentLoaded", main);
 
-const todos = [];
+// const todos = [];
 
-function main(){
-    initWelcome();
-    initCalendar();
-    initCalendarDaysClicked();
-    initCheckedTodo();
-    initTodos();
+function main() {
+  initWelcome();
+  initCalendar();
+  initCalendarDaysClicked();
+  initCheckedTodo();
+  initTodos();
 }
