@@ -13,9 +13,13 @@
 }
 
 .calendar {
+}
+
+.daysInCalendar{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
+
 }
 
 .day {
@@ -25,6 +29,8 @@
   align-items: center;
   cursor: pointer;
   border: solid 2px white;
+  color: white;
+  list-style-type: none;
 }
 
 .padding {
