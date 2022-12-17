@@ -34,10 +34,10 @@ function createNewTodo(event) {
   const todo = {
     id: Date.now().toLocaleString(),
     content: event.target.elements.text.value,
+    date: event.target.elements.date.value,
     completed: false,
-    date: new Date().toLocaleDateString(),
+    createdAt: new Date().toLocaleDateString(),
   };
-  console.log("Funkar?");
 
   todos.push(todo);
 
@@ -69,6 +69,7 @@ function showTodos() {
     deleteButton.classList.add("todo-button-delete");
 
     todoContent.innerHTML = `${todo.content}`;
+    todoDate.innerHTML = `${todo.date}`;
     editButton.innerHTML = "Ändra";
     deleteButton.innerHTML = "Ta bort";
 
