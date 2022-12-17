@@ -14,9 +14,6 @@ function addEventListeners() {
 
   const saveTodoButton = document.getElementById("saveButton");
   saveTodoButton.addEventListener("click", addTodoFormEventListener);
-
-  // const deleteButton = document.getElementById("deleteButton");
-  // deleteButton.addEventListener("click", deleteTodo);
 }
 
 // /** Visar / döljer popup fönstret för att skapa Todo. */
@@ -28,11 +25,13 @@ function togglePopup() {
 function addTodoFormEventListener() {
   const todoInput = document.getElementById("todoInput").value;
   const dateInput = document.getElementById("dateInput").value;
+  const form = document.querySelector("#add-todo-form");
+  // const saveButton = document.getElementById("saveButton");
 
   if (todoInput === "" || dateInput === "") {
-    alert("Var vänlig skriv en Todo och fyll i ett datum.");
+    // alert("Var vänlig skriv en Todo och fyll i ett datum.");
+    form.removeEventListener("submit", createNewTodo);
   } else {
-    const form = document.querySelector("#add-todo-form");
     form.addEventListener("submit", createNewTodo);
   }
 }
