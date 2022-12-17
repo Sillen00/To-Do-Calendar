@@ -15,6 +15,9 @@ function addEventListeners() {
 
   const saveTodoButton = document.getElementById("saveButton");
   saveTodoButton.addEventListener("click", addTodoFormEventListener);
+
+  // const deleteButton = document.getElementById("deleteButton");
+  // deleteButton.addEventListener("click", deleteTodo);
 }
 
 // /** Visar / döljer popup fönstret för att skapa Todo. */
@@ -43,7 +46,7 @@ function createNewTodo(event) {
 
   event.target.reset();
 
-  showTodos();
+  showTodos(todo);
 }
 
 function showTodos() {
@@ -65,7 +68,7 @@ function showTodos() {
     todoTitle.classList.add("todo-title");
     todoDate.classList.add("todo-date");
     todoButtons.classList.add("todo-buttons");
-    editButton.classList.add("todo-button-change");
+    editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
 
     todoContent.innerHTML = `${todo.content}`;
@@ -83,13 +86,20 @@ function showTodos() {
 
     allTodo.appendChild(todoItem);
 
-    deleteButton.addEventListener("click", (e) => {
+    deleteButton.addEventListener("click", () => {
       todos = todos.filter((t) => t != todo);
       showTodos();
+      togglePopup();
     });
   }
   togglePopup();
 }
+
+// function deleteTodo(todo) {
+//   todos = todos.filter((t) => t != todo);
+//   showTodos();
+//   togglePopup();
+// }
 
 // DAVIDS KOD
 
