@@ -12,9 +12,6 @@
   margin: 1rem 0;
 }
 
-.calendar {
-}
-
 .daysInCalendar{
   display: grid;
   grid-template-columns: repeat(7, 1fr);

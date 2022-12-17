@@ -29,19 +29,24 @@ const prevMonth = document.getElementById("monthBackArrow");
 const nextMonth = document.getElementById("monthForwardArrow");
 
 
-const dt = new Date();
+// const dt = new Date();
 // const day = dt.getDate();
-const month = dt.getMonth();
-const year = dt.getFullYear();
+// const month = dt.getMonth();
+// const year = dt.getFullYear();
 
 // const firstDay = new Date(year, month, 1);
-const daysInMonth = new Date(year, month + 1, 0).getDate(); 
+const daysInMonth = new Date(calendar.year, calendar.month + 1, 0).getDate(); 
 
 function renderCalenderDays() {
   let calendarDays = document.querySelector(".daysInCalendar")
-  
+    
+  while (calendarDays.hasChildNodes){
+    calendarDays.remove("li")
+  }
+
   for (let i = 1; i <= daysInMonth; i++) {
     let li = document.createElement("li");
+    li.innerHTML = "";
     li.innerHTML = i;
     li.classList.add("day");
     calendarDays.appendChild(li);
@@ -64,11 +69,7 @@ function renderCalenderDays() {
 
 function calenderInfo() {
   changeMonths();
-  
-
-
   drawCurrentMonth();
-  
 }
 
 /**
@@ -89,6 +90,7 @@ function monthForward() {
   } else {
     calendar.month++;
   }
+  renderCalenderDays();
   // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
   drawCurrentMonth();
 }
@@ -103,6 +105,7 @@ function monthBack() {
   } else {
     calendar.month--;
   }
+  renderCalenderDays();
   // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
   drawCurrentMonth();
 }
