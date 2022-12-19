@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", calenderInfo);
 
 /** Creates an object with the current date, year, month and day. */
+
 let calendar = {
   date: new Date(),
   year: null,
@@ -69,7 +70,6 @@ function calenderInfo() {
   calendar.month = calendar.date.getMonth();
   calendar.day = calendar.date.getDate();
 
-
   drawCurrentMonth();
   
 }
@@ -78,8 +78,12 @@ function calenderInfo() {
  * Adds event listeners to the buttons that changes the month.
  */
 function changeMonths() {
-  document.getElementById("monthBackArrow").addEventListener("click", monthBack);
-  document.getElementById("monthForwardArrow").addEventListener("click", monthForward);
+  document
+    .getElementById("monthBackArrow")
+    .addEventListener("click", monthBack);
+  document
+    .getElementById("monthForwardArrow")
+    .addEventListener("click", monthForward);
 }
 
 /**

@@ -1,7 +1,5 @@
-window.addEventListener("DOMContentLoaded", main);
-
 /** Adds a start and flow to the functions. */
-function main() {
+function initCalendarDaysClicked(){
   selectDay();
 }
 

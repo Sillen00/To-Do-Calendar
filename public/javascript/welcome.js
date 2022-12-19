@@ -1,4 +1,6 @@
-window.addEventListener("DOMContentLoaded", showCurrentDay);
+function initWelcome(){
+  showCurrentDay();
+}
 
 
 /**This shows the current date and time in right format */

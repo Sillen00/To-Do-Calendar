@@ -1,67 +1,30 @@
-.month-div {
-  font-size: 3rem;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  margin: 0 3rem;
-}
-
-.weekday-div {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 1rem 0;
-}
-
-.calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-}
-
-.day {
-  height: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: solid 2px white;
-}
-
-.padding {
-  height: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: solid 2px grey;
-}
-
-.day:hover {
-  background-color: var(--grey-color);
-}
-
-.active {
-  border: 0.5rem solid var(--green-color1);
-}
 
 @media (width > 768px) {
-  header{
+  header {
     text-align: end;
   }
-  header img{
+  header img {
     margin-right: 3rem;
   }
   main {
     display: block;
   }
 
-  aside {
-    border: 2px solid var(--Secondary-color);
-    border-top: none;
+  .month-div {
+    font-size: 3rem;
   }
 
-  .todo-heading p:first-of-type,
-  .todo-heading p:last-of-type {
+  .weekday-div-mobile {
+    display: none;
+  }
+
+  .weekday-div {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+  }
+
+  .todo-heading p {
     font-size: var(--FS-1_5);
   }
 
