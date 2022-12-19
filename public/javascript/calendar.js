@@ -18,6 +18,7 @@ calendar.year = calendar.date.getFullYear();
 calendar.month = calendar.date.getMonth();
 calendar.day = calendar.date.getDate();
 
+
 /** Array with the months of the year.*/
 const months = [
   "Januari",
@@ -47,23 +48,30 @@ const weekdays = [
 ];
 
 function renderCalenderDays() {
+  let calenderUL = document.querySelector(".calendar")
 
 
   
-  // const firstDay = new Date(year, month, 1);
+  let firstWeekDayOfMonth = new Date(calendar.year, calendar.month, 1, - 1).getDay();   
 
-  const daysInMonth = new Date(calendar.year, calendar.month + 1, 0).getDate();
-  const calenderUL = document.querySelector(".calendar")
-  console.log(calenderUL)
-
+  let daysInMonth = new Date(calendar.year, calendar.month + 1, 0).getDate();
+  let paddingDays = new Date (calendar.year, calendar.month, 0).getDate();
+// console.log(paddingDays)
   let liTag = "";
+
+
+  for (let i = firstWeekDayOfMonth; i > 0; i--) {
+    liTag += `<li class="padding-days">${paddingDays - i + 1}</li>`;
+    
+  }
+
+
 
   for (let i = 1; i <= daysInMonth; i++) {
     liTag += `<li>${i}</li>`;
-
-    calenderUL.innerHTML= liTag;
-
   };
+
+  calenderUL.innerHTML= liTag;
 
 }
 
