@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo</title>
+    <title>ToDo</title>
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/ecb6c407eb.js"
@@ -53,7 +53,7 @@
 
             <div class="create-button-div">
               <button id="createTodoButton" class="createButton">
-                <p>Skapa Todo</p>
+                <p>Skapa ToDo</p>
                 <p><i class="fa-solid fa-plus"></i></p>
               </button>
             </div>
@@ -77,6 +77,10 @@
                   />
                   <button id="saveButton" class="save-button">Spara</button>
                 </div>
+                <div class="feedback-container">
+                  <div id="warning" class="warning"></div>
+                  <div id="feedback" class="feedback"></div>
+                </div>
               </form>
             </div>
           </div>
@@ -85,7 +89,7 @@
             <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
             <div class="todo-heading">
               <p>
-                Todos
+                ToDos
                 <span id="quantity-todos"
                   >()
                   <!-- Lägg in antal todos inom "()" -->
@@ -94,16 +98,6 @@
             </div>
             <ul class="todo-container" id="allTodo">
               <!-- Append child i "current-day-todo" för att lägga till todos -->
-              <li class="todo">
-                <div class="todo-content">
-                  <p class="todo-title">Skotta snö</p>
-                  <p class="todo-date">2022-12-10</p>
-                </div>
-                <div class="todo-buttons">
-                  <button class="todo-button-change">Ändra</button>
-                  <button class="todo-button-delete">Ta bort</button>
-                </div>
-              </li>
             </ul>
           </div>
         </aside>

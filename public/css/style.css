@@ -105,7 +105,6 @@ aside {
 /* TODO POPUP---------------------*/
 .create-todo-popup {
   width: 100%;
-  position: absolute;
   display: none;
   top: 215px;
   left: 0;
@@ -137,12 +136,23 @@ button {
 .popup-date-btn-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .save-button {
   color: var(--Secondary-color);
   background-color: var(--green-color1);
   cursor: pointer;
+}
+
+.feedback-container {
+  display: flex;
+  justify-content: center;
+  font-size: var(--FS-1_2);
+}
+.feedback-container i {
+  color: yellow;
+  margin-right: 0.5rem;
 }
 
 /* TODO LIST------------------------------------------------------------------------------------ */
@@ -223,13 +233,14 @@ button {
   width: 35%;
 }
 
-.todo-button-change {
+.todo-button-edit {
   background-color: var(--green-color1);
   color: var(--Secondary-color);
   border: none;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
+  cursor: pointer;
 }
 
 .todo-button-delete {
@@ -239,6 +250,7 @@ button {
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem;
   font-size: var(--FS-0_666);
+  cursor: pointer;
 }
 
 /* MAIN---------------------------------------------------------------------------------- */
