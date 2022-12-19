@@ -51,45 +51,35 @@ function renderCalenderDays() {
   let calenderUL = document.querySelector(".calendar")
 
 
-  
-  let firstWeekDayOfMonth = new Date(calendar.year, calendar.month, 1, - 1).getDay();   
-
-  let daysInMonth = new Date(calendar.year, calendar.month + 1, 0).getDate();
-  let paddingDays = new Date (calendar.year, calendar.month, 0).getDate();
-// console.log(paddingDays)
+  let firstWeekDayOfMonth = new Date(calendar.year, calendar.month, 1, - 1).getDay(); // Getting first weekday of mounth  
+  let lastDateOfMonth = new Date(calendar.year, calendar.month + 1, 0).getDate(); // Getting last date of month
+  let lastDayOfMonth = new Date(calendar.year, calendar.month, lastDateOfMonth - 1).getDay(); // Getting last date of month
+  let lastDateOfPrevMonth = new Date (calendar.year, calendar.month, 0).getDate(); // Getting last date of prev month
+ 
   let liTag = "";
 
-
+// loop for padding days of previous month
   for (let i = firstWeekDayOfMonth; i > 0; i--) {
-    liTag += `<li class="padding-days">${paddingDays - i + 1}</li>`;
-    
+    liTag += `<li class="padding-days">${lastDateOfPrevMonth - i + 1}</li>`;  
   }
 
-
-
-  for (let i = 1; i <= daysInMonth; i++) {
-    liTag += `<li>${i}</li>`;
+// Itterates the current month and adds the days to the calendar
+  for (let i = 1; i <= lastDateOfMonth; i++) {
+    let isToday = i === calendar.date.getDate() && calendar.month === new Date().getMonth() && calendar.year === new Date().getFullYear() ? "active" : "";
+    liTag += `<li class="${isToday}">${i}</li>`;
+    
   };
+
+  // Creating li of next month first days
+  for (let i = lastDayOfMonth; i < 6; i++) {
+    liTag += `<li class="padding-days">${i - lastDayOfMonth + 1}</li>`; 
+  }
 
   calenderUL.innerHTML= liTag;
 
 }
 
-  
 
-  // const dateString = firstDay.toLocaleDateString("en-us", {
-  //   weekday: "long",
-  //   year: "numeric",
-  //   month: "numeric",
-  //   day: "numeric"
-  // })
-
-  // const paddingDays = weekdays.indexOf(dateString.split(', ')[0]) -1;
-
-  // const dt = new Date();
-  // const day = dt.getDate();
-  // const month = dt.getMonth();
-  // const year = dt.getFullYear();
 
 
 /**
