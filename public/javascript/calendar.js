@@ -1,12 +1,9 @@
-
 // window.addEventListener("DOMContentLoaded", initCalendar);
 
 function initCalendar() {
   renderCalenderDays();
-    calenderInfo();
-
+  calenderInfo();
 }
-
 
 /** Creates an object with the current date, year, month and day. */
 
@@ -17,57 +14,69 @@ let calendar = {
   day: null,
 };
 
-
 calendar.year = calendar.date.getFullYear();
 calendar.month = calendar.date.getMonth();
 calendar.day = calendar.date.getDate();
 
-
 /** Array with the months of the year.*/
-const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November",  "December"];
+const months = [
+  "Januari",
+  "Februari",
+  "Mars",
+  "April",
+  "Maj",
+  "Juni",
+  "Juli",
+  "Augusti",
+  "September",
+  "Oktober",
+  "November",
+  "December",
+];
 
 /**Array with the weekdays */
 // const weekdays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-
+const weekdays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 function renderCalenderDays() {
-const dt = new Date();
-// const nav = 0;
+  const dt = new Date();
+  // const nav = 0;
 
-// if (nav !== 0) {
-//   dt.setMonth(new Date().getMonth() + nav);
-// }
+  // if (nav !== 0) {
+  //   dt.setMonth(new Date().getMonth() + nav);
+  // }
 
-// const day = dt.getDate();
-const month = dt.getMonth();
-const year = dt.getFullYear();
+  // const day = dt.getDate();
+  const month = dt.getMonth();
+  const year = dt.getFullYear();
 
-// 1. behöver få ut vilken dag det är på första dagen i månaden
-// const firstDay = new Date(year, month, 1);
+  // 1. behöver få ut vilken dag det är på första dagen i månaden
+  // const firstDay = new Date(year, month, 1);
 
-// 2. behöver få ut hur många dagar det är i månaden
-const daysInMonth = new Date(year, month + 1, 0).getDate();   // kolla att det blir rätt måndad!!!!!
+  // 2. behöver få ut hur många dagar det är i månaden
+  const daysInMonth = new Date(year, month + 1, 0).getDate(); // kolla att det blir rätt måndad!!!!!
 
+  // const dateString = firstDay.toLocaleDateString("en-us", {
+  //   weekday: "long",
+  //   year: "numeric",
+  //   month: "numeric",
+  //   day: "numeric"
+  // })
 
-// const dateString = firstDay.toLocaleDateString("en-us", {
-//   weekday: "long",
-//   year: "numeric",
-//   month: "numeric",
-//   day: "numeric"
-// })
+  // const paddingDays = weekdays.indexOf(dateString.split(', ')[0]) -1;
 
-// const paddingDays = weekdays.indexOf(dateString.split(', ')[0]) -1;
-
-
-
-
-// const dt = new Date();
-// const day = dt.getDate();
-// const month = dt.getMonth();
-// const year = dt.getFullYear();
-
+  // const dt = new Date();
+  // const day = dt.getDate();
+  // const month = dt.getMonth();
+  // const year = dt.getFullYear();
 
   // for (let i = 1; i <= daysInMonth; i++) {
   //   let li = document.createElement("li");
@@ -76,8 +85,6 @@ const daysInMonth = new Date(year, month + 1, 0).getDate();   // kolla att det b
   //   li.classList.add("day");
   //   calendarDays.appendChild(li);
   // };
-  
-
 }
 
 /**
@@ -139,5 +146,4 @@ function monthBack() {
 function drawCurrentMonth() {
   document.getElementById("displayCurrentMonth").innerText =
     months[calendar.month] + " " + +calendar.year;
-    
 }
