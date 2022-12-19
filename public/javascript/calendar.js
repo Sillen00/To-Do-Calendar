@@ -47,17 +47,12 @@ const weekdays = [
 ];
 
 function renderCalenderDays() {
-  const dt = new Date();
+
+
   
-  const day = dt.getDate();
-  const month = dt.getMonth();
-  const year = dt.getFullYear();
-
-
   // const firstDay = new Date(year, month, 1);
 
-
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const daysInMonth = new Date(calendar.year, calendar.month + 1, 0).getDate();
   const calenderUL = document.querySelector(".calendar")
   console.log(calenderUL)
 
@@ -70,16 +65,9 @@ function renderCalenderDays() {
 
   };
 
-
-
 }
 
   
-  // let li = document.createElement("li");
-  // li.innerHTML = "";
-  // li.innerHTML = i;
-  // li.classList.add("day");
-  // calendarDays.appendChild(li);
 
   // const dateString = firstDay.toLocaleDateString("en-us", {
   //   weekday: "long",
@@ -102,7 +90,6 @@ function renderCalenderDays() {
 
 function calenderInfo() {
   changeMonths();
-
 
   drawCurrentMonth();
 }
@@ -129,7 +116,8 @@ function monthForward() {
   } else {
     calendar.month++;
   }
-  // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
+  renderCalenderDays();
+ 
   drawCurrentMonth();
 }
 
@@ -143,7 +131,8 @@ function monthBack() {
   } else {
     calendar.month--;
   }
-  // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
+  renderCalenderDays();
+
   drawCurrentMonth();
 }
 /**
