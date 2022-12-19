@@ -1,5 +1,5 @@
 
-window.addEventListener("DOMContentLoaded", initCalendar);
+// window.addEventListener("DOMContentLoaded", initCalendar);
 
 function initCalendar() {
   renderCalenderDays();
@@ -40,43 +40,15 @@ const dt = new Date();
 //   dt.setMonth(new Date().getMonth() + nav);
 // }
 
-const day = dt.getDate();
+// const day = dt.getDate();
 const month = dt.getMonth();
 const year = dt.getFullYear();
 
 // 1. behöver få ut vilken dag det är på första dagen i månaden
-const firstDay = new Date(year, month, 1);
+// const firstDay = new Date(year, month, 1);
+
 // 2. behöver få ut hur många dagar det är i månaden
 const daysInMonth = new Date(year, month + 1, 0).getDate();   // kolla att det blir rätt måndad!!!!!
-
-
-const dateString = firstDay.toLocaleDateString("en-us", {
-  weekday: "long",
-  year: "numeric",
-  month: "numeric",
-  day: "numeric"
-})
-const paddingDays = weekdays.indexOf(dateString.split(', ')[0]) -1;
-console.log(dateString)
-
-
-console.log(paddingDays);
-
-
-// const dt = new Date();
-// const day = dt.getDate();
-// const month = dt.getMonth();
-// const year = dt.getFullYear();
-
-
-  for (let i = 1; i <= daysInMonth; i++) {
-    let li = document.createElement("li");
-    li.innerHTML = "";
-    li.innerHTML = i;
-    li.classList.add("day");
-    calendarDays.appendChild(li);
-  };
-  
 
 
 // const dateString = firstDay.toLocaleDateString("en-us", {
@@ -85,6 +57,26 @@ console.log(paddingDays);
 //   month: "numeric",
 //   day: "numeric"
 // })
+
+// const paddingDays = weekdays.indexOf(dateString.split(', ')[0]) -1;
+
+
+
+
+// const dt = new Date();
+// const day = dt.getDate();
+// const month = dt.getMonth();
+// const year = dt.getFullYear();
+
+
+  // for (let i = 1; i <= daysInMonth; i++) {
+  //   let li = document.createElement("li");
+  //   li.innerHTML = "";
+  //   li.innerHTML = i;
+  //   li.classList.add("day");
+  //   calendarDays.appendChild(li);
+  // };
+  
 
 }
 
