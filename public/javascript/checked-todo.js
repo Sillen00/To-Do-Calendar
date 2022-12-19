@@ -1,0 +1,3 @@
+function initCheckedTodo(){
+    checkTodo();
+  }

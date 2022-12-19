@@ -1,5 +1,5 @@
 @media (width > 1023px) {
-  .clock-and-hand{
+  .clock-and-hand {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,14 +8,15 @@
   .clock-and-hand img {
     display: block;
   }
-  
-  .aside-main-container{
+
+  .aside-main-container {
     flex-direction: row;
   }
-  
+
   aside {
     width: 30%;
     min-width: 360px;
+    border: 2px solid var(--Secondary-color);
   }
 
   main {
@@ -23,11 +24,10 @@
     width: 70%;
   }
 
-
-  .todo{
-    width:auto;
+  .todo {
+    width: auto;
   }
-  .todo-container{
+  .todo-container {
     display: block;
   }
 }
