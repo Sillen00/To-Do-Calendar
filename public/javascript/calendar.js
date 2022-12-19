@@ -1,4 +1,12 @@
-window.addEventListener("DOMContentLoaded", calenderInfo);
+
+window.addEventListener("DOMContentLoaded", initCalendar);
+
+function initCalendar() {
+  renderCalenderDays();
+    calenderInfo();
+
+}
+
 
 /** Creates an object with the current date, year, month and day. */
 
@@ -8,6 +16,12 @@ let calendar = {
   month: null,
   day: null,
 };
+
+
+calendar.year = calendar.date.getFullYear();
+calendar.month = calendar.date.getMonth();
+calendar.day = calendar.date.getDate();
+
 
 /** Array with the months of the year.*/
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November",  "December"];
@@ -49,29 +63,41 @@ console.log(dateString)
 console.log(paddingDays);
 
 
-// 4. behöver få ut vilken dag det är på första dagen i nästa månad
-// 5. behöver få ut hur många dagar det är i nästa månad
-// 6. behöver få ut vilken dag det är på sista dagen i nästa månad
+// const dt = new Date();
+// const day = dt.getDate();
+// const month = dt.getMonth();
+// const year = dt.getFullYear();
 
-} 
-// toLocaleDateString("sv-se",)
-// paddingdays to work with sv-se
-// const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);
-// console.log(dateString)
 
+  for (let i = 1; i <= daysInMonth; i++) {
+    let li = document.createElement("li");
+    li.innerHTML = "";
+    li.innerHTML = i;
+    li.classList.add("day");
+    calendarDays.appendChild(li);
+  };
+  
+
+
+// const dateString = firstDay.toLocaleDateString("en-us", {
+//   weekday: "long",
+//   year: "numeric",
+//   month: "numeric",
+//   day: "numeric"
+// })
+
+}
 
 /**
  * Gets the current year, month and day and displays the current month in the calendar.
  */
+
 function calenderInfo() {
   changeMonths();
+
   renderCalenderDays();
-  calendar.year = calendar.date.getFullYear();
-  calendar.month = calendar.date.getMonth();
-  calendar.day = calendar.date.getDate();
 
   drawCurrentMonth();
-  
 }
 
 /**
@@ -96,7 +122,8 @@ function monthForward() {
   } else {
     calendar.month++;
   }
-  calendar.date = new Date(calendar.year, calendar.month, 1);
+  renderCalenderDays();
+  // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
   drawCurrentMonth();
 }
 
@@ -110,7 +137,8 @@ function monthBack() {
   } else {
     calendar.month--;
   }
-  calendar.date = new Date(calendar.year, calendar.month, 1);
+  renderCalenderDays();
+  // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
   drawCurrentMonth();
 }
 /**
