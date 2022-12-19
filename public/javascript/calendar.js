@@ -3,6 +3,7 @@
 function initCalendar() {
   renderCalenderDays();
   calenderInfo();
+  getHolidayAPI();
 }
 
 /** Creates an object with the current date, year, month and day. */
@@ -46,6 +47,28 @@ const weekdays = [
   "Friday",
   "Saturday",
 ];
+
+async function getHolidayAPI() {
+  const url = "https://sholiday.faboul.se/dagar/v2.1/2022";
+  const response = await fetch(url);
+  const result = await response.json();
+
+  console.log(result.dagar);
+
+  for (const day of result.dagar) {
+    if (day.helgdag) {
+      // const li = document.createElement("li");
+
+      // li.innerHTML = day.helgdag + "-----" + day.datum;
+      // const ul = document.querySelector("ul");
+
+      // ul.appendChild(li);
+    }
+  }
+}
+
+
+
 
 function renderCalenderDays() {
   let calenderUL = document.querySelector(".calendar")
