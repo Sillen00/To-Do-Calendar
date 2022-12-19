@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", initTodos);
 
 let todos = [];
+console.log(todos);
 
 /** Startar funktionerna för skapandet av Todo.*/
 function initTodos() {
