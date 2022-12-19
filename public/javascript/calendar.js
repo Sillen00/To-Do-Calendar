@@ -48,21 +48,38 @@ const weekdays = [
 
 function renderCalenderDays() {
   const dt = new Date();
-  // const nav = 0;
-
-  // if (nav !== 0) {
-  //   dt.setMonth(new Date().getMonth() + nav);
-  // }
-
-  // const day = dt.getDate();
+  
+  const day = dt.getDate();
   const month = dt.getMonth();
   const year = dt.getFullYear();
 
-  // 1. behöver få ut vilken dag det är på första dagen i månaden
+
   // const firstDay = new Date(year, month, 1);
 
-  // 2. behöver få ut hur många dagar det är i månaden
-  const daysInMonth = new Date(year, month + 1, 0).getDate(); // kolla att det blir rätt måndad!!!!!
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const calenderUL = document.querySelector(".calendar")
+  console.log(calenderUL)
+
+  let liTag = "";
+
+  for (let i = 1; i <= daysInMonth; i++) {
+    liTag += `<li>${i}</li>`;
+
+    calenderUL.innerHTML= liTag;
+
+  };
+
+
+
+}
+
+  
+  // let li = document.createElement("li");
+  // li.innerHTML = "";
+  // li.innerHTML = i;
+  // li.classList.add("day");
+  // calendarDays.appendChild(li);
 
   // const dateString = firstDay.toLocaleDateString("en-us", {
   //   weekday: "long",
@@ -78,14 +95,6 @@ function renderCalenderDays() {
   // const month = dt.getMonth();
   // const year = dt.getFullYear();
 
-  // for (let i = 1; i <= daysInMonth; i++) {
-  //   let li = document.createElement("li");
-  //   li.innerHTML = "";
-  //   li.innerHTML = i;
-  //   li.classList.add("day");
-  //   calendarDays.appendChild(li);
-  // };
-}
 
 /**
  * Gets the current year, month and day and displays the current month in the calendar.
@@ -94,7 +103,6 @@ function renderCalenderDays() {
 function calenderInfo() {
   changeMonths();
 
-  renderCalenderDays();
 
   drawCurrentMonth();
 }
@@ -121,7 +129,6 @@ function monthForward() {
   } else {
     calendar.month++;
   }
-  renderCalenderDays();
   // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
   drawCurrentMonth();
 }
@@ -136,7 +143,6 @@ function monthBack() {
   } else {
     calendar.month--;
   }
-  renderCalenderDays();
   // calendar.date = new Date(calendar.year, calendar.month, 1); //BEHÖVS DENNA?
   drawCurrentMonth();
 }

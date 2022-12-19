@@ -267,7 +267,7 @@ button {
   grid-template-rows: repeat(6, 1fr);
 }
 
-.day {
+.calendar li {
   height: 5rem;
   display: flex;
   justify-content: center;
