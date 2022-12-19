@@ -292,6 +292,12 @@ button {
   cursor: pointer;
 }
 
+.calendar li p{
+  overflow: hidden;
+  width: 2rem;
+  height: 1rem;
+}
+
 .padding-days {
   color: var(--grey-color);
 }

@@ -20,6 +20,8 @@ calendar.month = calendar.date.getMonth();
 calendar.day = calendar.date.getDate();
 
 
+
+
 /** Array with the months of the year.*/
 const months = [
   "Januari",
@@ -49,20 +51,28 @@ const weekdays = [
 ];
 
 async function getHolidayAPI() {
-  const url = "https://sholiday.faboul.se/dagar/v2.1/2022";
+  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}`;
   const response = await fetch(url);
   const result = await response.json();
+  
+  // console.log(result.dagar);
 
-  console.log(result.dagar);
-
+  let fullDateTime = calendar.date.toLocaleString();
+  const fullDate = fullDateTime.split(" ")
+  console.log(fullDate[0])
+  
   for (const day of result.dagar) {
-    if (day.helgdag) {
-      // const li = document.createElement("li");
-
-      // li.innerHTML = day.helgdag + "-----" + day.datum;
-      // const ul = document.querySelector("ul");
-
-      // ul.appendChild(li);
+    if (day.helgdag === day.helgdag && day.datum === fullDate[0]) {
+      const p = document.createElement("p");
+      p.classList.add("helgdag");
+      
+      p.innerHTML = day.helgdag;
+      const calendarDays = document.querySelectorAll(".calendar");
+      
+      for (const li of calendarDays) {
+        li.appendChild(p); 
+      }
+      // console.log(calendarDays)
     }
   }
 }
