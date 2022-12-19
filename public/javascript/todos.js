@@ -6,6 +6,8 @@ console.log(todos);
 /** Startar funktionerna för skapandet av Todo.*/
 function initTodos() {
   addEventListeners();
+  showTodos();
+  togglePopup();
 }
 
 /** Aktiverar funktionen togglePopup vid klick av knappen på Skapa Todo.  */
@@ -31,9 +33,10 @@ function addTodoFormEventListener() {
 
   if (todoInput === "" || dateInput === "") {
     // alert("Var vänlig skriv en Todo och fyll i ett datum.");
-    form.removeEventListener("submit", createNewTodo);
+    // form.removeEventListener("submit", createNewTodo);
   } else {
     form.addEventListener("submit", createNewTodo);
+    // createNewTodo();
   }
 }
 
@@ -50,11 +53,12 @@ function createNewTodo(event) {
 
   todos.push(todo);
 
+  // Lägger till den nya todo:n i LS.
   localStorage.setItem("todos", JSON.stringify(todos));
 
   event.target.reset();
 
-  showTodos(todo);
+  showTodos();
 }
 
 function showTodos() {
@@ -96,6 +100,7 @@ function showTodos() {
 
     deleteButton.addEventListener("click", () => {
       todos = todos.filter((t) => t != todo);
+      // Tar bort todo:n från LS.
       localStorage.setItem("todos", JSON.stringify(todos));
       showTodos();
       togglePopup();
