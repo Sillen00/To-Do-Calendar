@@ -136,12 +136,23 @@ button {
 .popup-date-btn-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .save-button {
   color: var(--Secondary-color);
   background-color: var(--green-color1);
   cursor: pointer;
+}
+
+.feedback-container {
+  display: flex;
+  justify-content: center;
+  font-size: var(--FS-1_2);
+}
+.feedback-container i {
+  color: yellow;
+  margin-right: 0.5rem;
 }
 
 /* TODO LIST------------------------------------------------------------------------------------ */

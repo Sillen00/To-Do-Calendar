@@ -37,9 +37,12 @@ function addTodoFormEventListener(event) {
   const dateInput = document.getElementById("dateInput").value;
   const form = document.getElementById("add-todo-form");
   const feedback = document.getElementById("feedback");
+  const warning = document.getElementById("warning");
 
   if (todoInput === "" || dateInput === "") {
-    feedback.textContent = "Var vänlig fyll i båda fälten.";
+    warning.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+
+    feedback.textContent = "Var vänlig fyll i ToDo och datum.";
     event.preventDefault();
   } else {
     form.addEventListener("submit", createNewTodo);

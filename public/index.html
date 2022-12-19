@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo</title>
+    <title>ToDo</title>
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/ecb6c407eb.js"
@@ -53,7 +53,7 @@
 
             <div class="create-button-div">
               <button id="createTodoButton" class="createButton">
-                <p>Skapa Todo</p>
+                <p>Skapa ToDo</p>
                 <p><i class="fa-solid fa-plus"></i></p>
               </button>
             </div>
@@ -75,8 +75,11 @@
                     id="dateInput"
                     class="date-input"
                   />
-                  <div id="feedback"></div>
                   <button id="saveButton" class="save-button">Spara</button>
+                </div>
+                <div class="feedback-container">
+                  <div id="warning" class="warning"></div>
+                  <div id="feedback" class="feedback"></div>
                 </div>
               </form>
             </div>
@@ -86,7 +89,7 @@
             <!-- ALL TODO---------------------------------------------------------------------------------------------------------------------------------------------->
             <div class="todo-heading">
               <p>
-                Todos
+                ToDos
                 <span id="quantity-todos"
                   >()
                   <!-- Lägg in antal todos inom "()" -->
