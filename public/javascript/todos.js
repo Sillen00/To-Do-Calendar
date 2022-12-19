@@ -1,9 +1,13 @@
 window.addEventListener("DOMContentLoaded", initTodos);
 
+/** Lagrar våra skapade todo:s och gör så att dessa fortfarande visas
+ * på skärmen även om sidan laddas om.
+ */
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
 console.log(todos);
 
-/** Startar funktionerna för skapandet av Todo.*/
+/** Startar funktionerna för skapandet och rendering av todo:s. */
 function initTodos() {
   addEventListeners();
   showTodos();
@@ -19,24 +23,27 @@ function addEventListeners() {
   saveTodoButton.addEventListener("click", addTodoFormEventListener);
 }
 
-// /** Visar / döljer popup fönstret för att skapa Todo. */
+/** Visar / döljer popup fönstret för att skapa Todo. */
 function togglePopup() {
   const todoPopup = document.getElementById("todoPopup");
   todoPopup.classList.toggle("show-popup");
 }
 
-function addTodoFormEventListener() {
+/** Tar vara på datan som användaren skriver in vid skapandet av en todo.
+ * Båda input-fälten måste vara ifyllda.
+ */
+function addTodoFormEventListener(event) {
   const todoInput = document.getElementById("todoInput").value;
   const dateInput = document.getElementById("dateInput").value;
-  const form = document.querySelector("#add-todo-form");
-  // const saveButton = document.getElementById("saveButton");
+  const form = document.getElementById("add-todo-form");
+  const feedback = document.getElementById("feedback");
 
   if (todoInput === "" || dateInput === "") {
-    // alert("Var vänlig skriv en Todo och fyll i ett datum.");
-    // form.removeEventListener("submit", createNewTodo);
+    feedback.textContent = "Var vänlig fyll i båda fälten.";
+    event.preventDefault();
   } else {
     form.addEventListener("submit", createNewTodo);
-    // createNewTodo();
+    feedback.textContent = "";
   }
 }
 
