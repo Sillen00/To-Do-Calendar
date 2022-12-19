@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", initTodos);
 
-let todos = [];
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 console.log(todos);
 
 /** Startar funktionerna för skapandet av Todo.*/
@@ -50,6 +50,8 @@ function createNewTodo(event) {
 
   todos.push(todo);
 
+  localStorage.setItem("todos", JSON.stringify(todos));
+
   event.target.reset();
 
   showTodos(todo);
@@ -94,6 +96,7 @@ function showTodos() {
 
     deleteButton.addEventListener("click", () => {
       todos = todos.filter((t) => t != todo);
+      localStorage.setItem("todos", JSON.stringify(todos));
       showTodos();
       togglePopup();
     });
