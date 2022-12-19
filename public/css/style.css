@@ -252,9 +252,14 @@ button {
 }
 
 .weekday-div-mobile {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   margin: 1rem 0;
+}
+.weekday{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .weekday-div {
@@ -275,7 +280,15 @@ button {
   cursor: pointer;
 }
 
-.day:hover {
+.padding-days {
+  color: var(--grey-color);
+}
+
+.padding-days:hover{
+  color: white;
+}
+
+.calendar li:hover {
   background-color: var(--grey-color);
 }
 

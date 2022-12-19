@@ -20,8 +20,8 @@
   }
 
   .weekday-div {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
     margin: 1rem 0;
   }
 
