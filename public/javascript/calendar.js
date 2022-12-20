@@ -98,7 +98,7 @@ function renderCalenderDays() {
 
 // Itterates the current month and adds the days to the calendar
   for (let i = 1; i <= lastDateOfMonth; i++) {
-    let isToday = i === calendar.date.getDate() && calendar.month === new Date().getMonth() && calendar.year === new Date().getFullYear() ? "active" : "";
+    let isToday = i === calendar.date.getDate() && calendar.month === new Date().getMonth() && calendar.year === new Date().getFullYear() ? "activeDay" : "";
     liTag += `<li class="${isToday}">${i}</li>`;
     
   };

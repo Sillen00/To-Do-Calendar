@@ -292,7 +292,7 @@ button {
   cursor: pointer;
 }
 
-.calendar li p{
+.calendar li p {
   overflow: hidden;
   width: 2rem;
   height: 1rem;
@@ -302,7 +302,7 @@ button {
   color: var(--grey-color);
 }
 
-.padding-days:hover{
+.padding-days:hover {
   color: white;
 }
 
@@ -312,6 +312,11 @@ button {
 
 .active {
   border: 0.5rem solid var(--green-color1);
+}
+
+.activeDay {
+  color:var(--green-color1);
+  font-weight: bolder;
 }
 
 /* REUSABLE CLASSES */
