@@ -4,12 +4,12 @@ window.addEventListener("DOMContentLoaded", initTodos);
  * på skärmen även om sidan laddas om.
  */
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
-console.log(todos);
+// console.log(todos);
 
 /** Startar funktionerna för skapandet och rendering av todo:s. */
 function initTodos() {
   addEventListeners();
-  showTodos();
+  refreshTodoList();
   togglePopup();
 }
 
@@ -31,7 +31,7 @@ function togglePopup() {
   const feedback = document.getElementById("feedback");
 
   todoPopup.classList.toggle("show-popup");
-  warning.innerHTML = "";
+  warning.textContent = "";
   feedback.textContent = "";
 }
 
@@ -74,11 +74,11 @@ function createNewTodoObject(event) {
 
   event.target.reset();
 
-  showTodos();
+  refreshTodoList();
 }
 
 /** Skapar element, tillämpar klasser och renderar de skapade todo:sen. */
-function showTodos() {
+function refreshTodoList() {
   const allTodo = document.querySelector("#allTodo");
   allTodo.innerHTML = "";
 
@@ -100,10 +100,10 @@ function showTodos() {
     editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
 
-    todoContent.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
+    todoContent.innerHTML = `<input type="text" class="input-todo" value="${todo.content}" readonly>`;
     todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
-    editButton.innerHTML = "Ändra";
-    deleteButton.innerHTML = "Ta bort";
+    editButton.textContent = "Ändra";
+    deleteButton.textContent = "Ta bort";
 
     todoContent.appendChild(todoTitle);
     todoContent.appendChild(todoDate);
@@ -117,29 +117,51 @@ function showTodos() {
 
     // Ändrar todo.
     editButton.addEventListener("click", (event) => {
-      const inputs = todoContent.querySelectorAll("input");
+      const todoInput = todoContent.querySelector(".input-todo");
+      const todoDate = todoContent.querySelector(".input-date");
 
-      for (let i = 0; i < inputs.length; i++) {
+      if (editButton.textContent === "Ändra") {
         todoInput.removeAttribute("readonly");
+        todoDate.removeAttribute("readonly");
+        todoInput.style.backgroundColor = "green";
+        todoDate.style.backgroundColor = "green";
+        editButton.textContent = "Spara";
         todoInput.focus();
-        todoInput.addEventListener("blur", (event) => {
-          todoInput.setAttribute("readonly", true);
-          todo.content = event.target.value;
-          // Lägger todos i LS.
-          localStorage.setItem("todos", JSON.stringify(todos));
-          showTodos();
-          inputs[i].disabled = true;
+      } else if (editButton.textContent === "Spara") {
+        todo.content = todoInput.value;
+        todo.date = todoDate.value;
+
+        todos = todos.map((item, index) => {
+          if (item.id === todo.id) {
+            return todo;
+          }
+          return item;
         });
+        // Lägger todos i LS.
+        localStorage.setItem("todos", JSON.stringify(todos));
+
+        refreshTodoList();
+        togglePopup();
+      } else {
+        alert("FEL PÅ ÄNDRA TODO!");
       }
+      // const todoInput = todoContent.querySelector(".input-todo");
+      // const todoDate = todoContent.querySelector(".input-date");
 
       // todoInput.removeAttribute("readonly");
+      // todoDate.removeAttribute("readonly");
+      // todoInput.style.backgroundColor = "green";
+      // todoDate.style.backgroundColor = "green";
+      // editButton.textContent = "Spara";
       // todoInput.focus();
       // todoInput.addEventListener("blur", (event) => {
       //   todoInput.setAttribute("readonly", true);
       //   todo.content = event.target.value;
       //   // Lägger todos i LS.
       //   localStorage.setItem("todos", JSON.stringify(todos));
+
       //   showTodos();
+      //   togglePopup();
       // });
 
       // const todoDate = todoContent.querySelector(".input-date");
@@ -152,6 +174,7 @@ function showTodos() {
       //   // Lägger todos i LS.
       //   localStorage.setItem("todos", JSON.stringify(todos));
       //   showTodos();
+      //   togglePopup();
       // });
     });
 
@@ -160,9 +183,16 @@ function showTodos() {
       todos = todos.filter((t) => t != todo);
       // Tar bort todo:n från LS.
       localStorage.setItem("todos", JSON.stringify(todos));
-      showTodos();
+      refreshTodoList();
       togglePopup();
     });
   }
   togglePopup();
 }
+
+// function deleteTodo(todo, todos) {
+//   todos = todos.filter((t) => t != todo);
+//   localStorage.setItem("todos", JSON.stringify(todos));
+//   showTodos();
+//   togglePopup();
+// }
