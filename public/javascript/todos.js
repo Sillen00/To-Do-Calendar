@@ -4,6 +4,7 @@ window.addEventListener("DOMContentLoaded", initTodos);
  * på skärmen även om sidan laddas om.
  */
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
+console.log(todos);
 
 /** Startar funktionerna för skapandet och rendering av todo:s. */
 function initTodos() {
@@ -99,7 +100,7 @@ function showTodos() {
     editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
 
-    todoContent.innerHTML = `${todo.content}`;
+    todoContent.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
     todoDate.innerHTML = `${todo.date}`;
     editButton.innerHTML = "Ändra";
     deleteButton.innerHTML = "Ta bort";
@@ -116,14 +117,14 @@ function showTodos() {
 
     // Ändrar todo.
     editButton.addEventListener("click", (event) => {
-      const todoInput = content.getElementById("todoInput");
+      const todoInput = todoContent.querySelector("input");
       todoInput.removeAttribute("readonly");
       todoInput.focus();
       todoInput.addEventListener("blur", (event) => {
         todoInput.setAttribute("readonly", true);
         todo.content = event.target.value;
         // Lägg till LS.
-        DisplayTodos();
+        showTodos();
       });
     });
 
