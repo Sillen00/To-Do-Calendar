@@ -26,7 +26,12 @@ function addEventListeners() {
 /** Visar / döljer popup fönstret för att skapa Todo. */
 function togglePopup() {
   const todoPopup = document.getElementById("todoPopup");
+  const warning = document.getElementById("warning");
+  const feedback = document.getElementById("feedback");
+
   todoPopup.classList.toggle("show-popup");
+  warning.innerHTML = "";
+  feedback.textContent = "";
 }
 
 /** Tar vara på datan som användaren skriver in vid skapandet av en todo.
@@ -36,8 +41,8 @@ function addTodoFormEventListener(event) {
   const todoInput = document.getElementById("todoInput").value;
   const dateInput = document.getElementById("dateInput").value;
   const form = document.getElementById("add-todo-form");
-  const feedback = document.getElementById("feedback");
   const warning = document.getElementById("warning");
+  const feedback = document.getElementById("feedback");
 
   if (todoInput === "" || dateInput === "") {
     warning.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
@@ -108,6 +113,19 @@ function showTodos() {
     todoItem.appendChild(todoButtons);
 
     allTodo.appendChild(todoItem);
+
+    // Ändrar todo.
+    editButton.addEventListener("click", (event) => {
+      const todoInput = content.getElementById("todoInput");
+      todoInput.removeAttribute("readonly");
+      todoInput.focus();
+      todoInput.addEventListener("blur", (event) => {
+        todoInput.setAttribute("readonly", true);
+        todo.content = event.target.value;
+        // Lägg till LS.
+        DisplayTodos();
+      });
+    });
 
     // Tar bort todo.
     deleteButton.addEventListener("click", () => {
