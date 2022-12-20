@@ -290,12 +290,14 @@ button {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  flex-direction: column;
+  position: relative;
 }
 
-.calendar li p {
-  overflow: hidden;
-  width: 2rem;
-  height: 1rem;
+.helgdag {
+  font-size: 0.6rem;
+  position:absolute;
+  top: 3rem;
 }
 
 .padding-days {
