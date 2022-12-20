@@ -3,7 +3,6 @@
 function initCalendar() {
   renderCalenderDays();
   calenderInfo();
-  getHolidayAPI();
 }
 
 /** Creates an object with the current date, year, month and day. */
@@ -46,96 +45,24 @@ const weekdays = [
   "Friday",
   "Saturday",
 ];
-// let fullDateTime = calendar.date.toLocaleString();
-// const fullDate = fullDateTime.split(" ")
-// console.log(fullDate[0])
 
 async function getHolidayAPI() {
-  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}`;
+  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${calendar.month +1}`;
   const response = await fetch(url);
   const result = await response.json();
 
   const days = result.dagar;
-  console.log(days)
 
-  
-  const holidays = [];
+  const fetchedHolidays = [];
   for (let i = 0; i < days.length; i++) {
     if (days[i].helgdag) {
-      holidays.push(days[i]);
+      fetchedHolidays.push(days[i]);
     }
   }
-  
-  for (let holiday of holidays) {
-    let str = holiday.datum;
-    let holidayName = holiday.helgdag;
-    let splittedStr = str.split("-");
-    let holidayDates = splittedStr[2];
-    let holidayParagraph = document.createElement("p");
-    holidayParagraph.classList.add("helgdag");
-    holidayParagraph.textContent = holidayName;
-  
-    /** If cell contains holidayname stop loop. If not, puts correct data in cell */
-    const calendarDays = document.querySelectorAll(".calendar li");
-    // console.log(calendarDays)
-  
-  for (let i = 0; i < 35; i++) {
-  if (calendarDays[i].innerHTML.includes(`${holidayName}`)) {
-    break;
-  } else if (calendarDays[i].innerHTML.includes(`${holidayDates}`)) {
-    calendarDays[i].append(holidayParagraph);
-  
-  }
-  }
-  
-}
-return holidays;
-
+  return fetchedHolidays;
 }
 
-
-
-
-// for (const day of days) {
-//   const daysInYear = day.datum;
-
-// }
-// for (const holiday of holidays) {
-//   // console.log(holiday.datum);
-//   const holidaysInYear = holiday.datum;
-//   if (holidaysInYear === daysInYear) {
-
-//     // Use the holidays array to add the holidays to the calendar
-
-//     const calendarDays = document.querySelectorAll(".calendar li");
-//     // console.log(calendarDays.length)
-
-//     for (const li of calendarDays) {
-//       const p = document.createElement("p");
-//       p.classList.add("helgdag");
-//       p.innerHTML = holiday.helgdag;
-//       li.appendChild(p);
-
-//     }
-//   }
-// }
-
-// for (const day of result.dagar) {
-//   if (day.helgdag === day.helgdag /*&& day.datum === fullDate[0]*/) {
-//     const p = document.createElement("p");
-//     p.classList.add("helgdag");
-
-//     p.innerHTML = day.helgdag;
-//     const calendarDays = document.querySelectorAll(".calendar li");
-
-//     for (const li of calendarDays) {
-//       li.appendChild(p);
-//     }
-// console.log(calendarDays)
-//   }
-// }
-
-function renderCalenderDays() {
+async function renderCalenderDays() {
   let calenderUL = document.querySelector(".calendar");
 
   let firstWeekDayOfMonth = new Date(
@@ -160,30 +87,49 @@ function renderCalenderDays() {
     0
   ).getDate(); // Getting last date of prev month
 
-  let liTag = "";
+  const now = new Date();
 
-  // loop for padding days of previous month
-  for (let i = firstWeekDayOfMonth; i > 0; i--) {
-    liTag += `<li class="padding-days">${lastDateOfPrevMonth - i + 1}</li>`;
-  }
+  getHolidayAPI().then((holidays) => {
+    let liTag = "";
+    // loop for padding days of previous month
+    for (let i = firstWeekDayOfMonth; i > 0; i--) {
+      liTag += `<li class="padding-days">${lastDateOfPrevMonth - i + 1}</li>`;
+    }
 
-  // Itterates the current month and adds the days to the calendar
-  for (let i = 1; i <= lastDateOfMonth; i++) {
-    let isToday =
-      i === calendar.date.getDate() &&
-      calendar.month === new Date().getMonth() &&
-      calendar.year === new Date().getFullYear()
-        ? "activeDay"
-        : "";
-    liTag += `<li class="${isToday}">${i}</li>`;
-  }
+    // Itterates the current month and adds the days to the calendar
+    for (let i = 1; i <= lastDateOfMonth; i++) {
+      const currentDate =
+        calendar.year +
+        "-" +
+        ("" + (calendar.month + 1)).padStart(2, "0") +
+        "-" +
+        ("" + i).padStart(2, "0");
 
-  // Creating li of next month first days
-  for (let i = lastDayOfMonth; i < 6; i++) {
-    liTag += `<li class="padding-days">${i - lastDayOfMonth + 1}</li>`;
-  }
+      let isToday =
+        i === calendar.day &&
+        calendar.month === now.getMonth() &&
+        calendar.year === now.getFullYear()
+          ? "activeDay"
+          : "";
+      let holidayString = "";
 
-  calenderUL.innerHTML = liTag;
+      const xx = holidays.filter((h) => {
+        return h.datum === currentDate;
+      });
+
+      if (xx[0]) {
+        holidayString = xx[0].helgdag
+      }
+
+      liTag += `<li class="${isToday}">${i}<p>${holidayString}</p></li>`;
+    }
+    // Creating li of next month first days
+    for (let i = lastDayOfMonth; i < 6; i++) {
+      liTag += `<li class="padding-days">${i - lastDayOfMonth + 1}</li>`;
+    }
+
+    calenderUL.innerHTML = liTag;
+  });
 }
 
 /**
