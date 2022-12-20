@@ -101,7 +101,7 @@ function showTodos() {
     deleteButton.classList.add("todo-button-delete");
 
     todoContent.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
-    todoDate.innerHTML = `${todo.date}`;
+    todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
     editButton.innerHTML = "Ändra";
     deleteButton.innerHTML = "Ta bort";
 
@@ -117,16 +117,42 @@ function showTodos() {
 
     // Ändrar todo.
     editButton.addEventListener("click", (event) => {
-      const todoInput = todoContent.querySelector("input");
-      todoInput.removeAttribute("readonly");
-      todoInput.focus();
-      todoInput.addEventListener("blur", (event) => {
-        todoInput.setAttribute("readonly", true);
-        todo.content = event.target.value;
-        // Lägger todos i LS.
-        localStorage.setItem("todos", JSON.stringify(todos));
-        showTodos();
-      });
+      const inputs = todoContent.querySelectorAll("input");
+
+      for (let i = 0; i < inputs.length; i++) {
+        todoInput.removeAttribute("readonly");
+        todoInput.focus();
+        todoInput.addEventListener("blur", (event) => {
+          todoInput.setAttribute("readonly", true);
+          todo.content = event.target.value;
+          // Lägger todos i LS.
+          localStorage.setItem("todos", JSON.stringify(todos));
+          showTodos();
+          inputs[i].disabled = true;
+        });
+      }
+
+      // todoInput.removeAttribute("readonly");
+      // todoInput.focus();
+      // todoInput.addEventListener("blur", (event) => {
+      //   todoInput.setAttribute("readonly", true);
+      //   todo.content = event.target.value;
+      //   // Lägger todos i LS.
+      //   localStorage.setItem("todos", JSON.stringify(todos));
+      //   showTodos();
+      // });
+
+      // const todoDate = todoContent.querySelector(".input-date");
+      // todoDate.removeAttribute("readonly");
+      // todoDate.focus();
+      // todoDate.addEventListener("blur", (event) => {
+      //   todoDate.setAttribute("readonly", true);
+      //   todo.content = event.target.value;
+
+      //   // Lägger todos i LS.
+      //   localStorage.setItem("todos", JSON.stringify(todos));
+      //   showTodos();
+      // });
     });
 
     // Tar bort todo.
