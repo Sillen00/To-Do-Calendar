@@ -123,7 +123,8 @@ function showTodos() {
       todoInput.addEventListener("blur", (event) => {
         todoInput.setAttribute("readonly", true);
         todo.content = event.target.value;
-        // Lägg till LS.
+        // Lägger todos i LS.
+        localStorage.setItem("todos", JSON.stringify(todos));
         showTodos();
       });
     });
