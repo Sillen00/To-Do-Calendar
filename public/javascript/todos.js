@@ -4,7 +4,6 @@ window.addEventListener("DOMContentLoaded", initTodos);
  * på skärmen även om sidan laddas om.
  */
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
-// console.log(todos);
 
 /** Startar funktionerna för skapandet och rendering av todo:s. */
 function initTodos() {
@@ -55,7 +54,6 @@ function addTodoFormEventListener(event) {
     feedback.textContent = "";
   }
 }
-
 /** Skapar ny data i ett objekt och pushar in det i arrayen (todos). */
 function createNewTodoObject(event) {
   event.preventDefault();
@@ -142,40 +140,7 @@ function refreshTodoList() {
 
         refreshTodoList();
         togglePopup();
-      } else {
-        alert("FEL PÅ ÄNDRA TODO!");
       }
-      // const todoInput = todoContent.querySelector(".input-todo");
-      // const todoDate = todoContent.querySelector(".input-date");
-
-      // todoInput.removeAttribute("readonly");
-      // todoDate.removeAttribute("readonly");
-      // todoInput.style.backgroundColor = "green";
-      // todoDate.style.backgroundColor = "green";
-      // editButton.textContent = "Spara";
-      // todoInput.focus();
-      // todoInput.addEventListener("blur", (event) => {
-      //   todoInput.setAttribute("readonly", true);
-      //   todo.content = event.target.value;
-      //   // Lägger todos i LS.
-      //   localStorage.setItem("todos", JSON.stringify(todos));
-
-      //   showTodos();
-      //   togglePopup();
-      // });
-
-      // const todoDate = todoContent.querySelector(".input-date");
-      // todoDate.removeAttribute("readonly");
-      // todoDate.focus();
-      // todoDate.addEventListener("blur", (event) => {
-      //   todoDate.setAttribute("readonly", true);
-      //   todo.content = event.target.value;
-
-      //   // Lägger todos i LS.
-      //   localStorage.setItem("todos", JSON.stringify(todos));
-      //   showTodos();
-      //   togglePopup();
-      // });
     });
 
     // Tar bort todo.
@@ -189,10 +154,3 @@ function refreshTodoList() {
   }
   togglePopup();
 }
-
-// function deleteTodo(todo, todos) {
-//   todos = todos.filter((t) => t != todo);
-//   localStorage.setItem("todos", JSON.stringify(todos));
-//   showTodos();
-//   togglePopup();
-// }
