@@ -9,29 +9,14 @@ let todos = JSON.parse(localStorage.getItem("todos")) || [];
 function initTodos() {
   addEventListeners();
   refreshTodoList();
-  togglePopup();
 }
 
-/** Aktiverar funktionen togglePopup vid klick av knappen på Skapa ToDo.
+/**
  * Spara-knappen leder vidare till addTodoFormEventListener.
  */
 function addEventListeners() {
-  const createTodoButton = document.getElementById("createTodoButton");
-  createTodoButton.addEventListener("click", togglePopup);
-
   const saveTodoButton = document.getElementById("saveButton");
   saveTodoButton.addEventListener("click", addTodoFormEventListener);
-}
-
-/** Visar / döljer popup fönstret för att skapa Todo. */
-function togglePopup() {
-  const todoPopup = document.getElementById("todoPopup");
-  const warning = document.getElementById("warning");
-  const feedback = document.getElementById("feedback");
-
-  todoPopup.classList.toggle("show-popup");
-  warning.textContent = "";
-  feedback.textContent = "";
 }
 
 /** Tar vara på datan som användaren skriver in vid skapandet av en todo.
@@ -139,7 +124,6 @@ function refreshTodoList() {
         localStorage.setItem("todos", JSON.stringify(todos));
 
         refreshTodoList();
-        togglePopup();
       }
     });
 
@@ -149,8 +133,6 @@ function refreshTodoList() {
       // Tar bort todo:n från LS.
       localStorage.setItem("todos", JSON.stringify(todos));
       refreshTodoList();
-      togglePopup();
     });
   }
-  togglePopup();
 }

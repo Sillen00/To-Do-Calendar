@@ -51,15 +51,8 @@
               </div>
             </div>
 
-            <div class="create-button-div">
-              <button id="createTodoButton" class="createButton">
-                <p>Skapa ToDo</p>
-                <p><i class="fa-solid fa-plus"></i></p>
-              </button>
-            </div>
-
-            <!-- TODO POPUPS----------------------------------------------------------->
-            <div id="todoPopup" class="create-todo-popup">
+            <!-- TODO CREATE DIV----------------------------------------------------------->
+            <div class="create-todo">
               <form id="add-todo-form">
                 <input
                   type="text"
@@ -69,25 +62,28 @@
                   placeholder="ToDo..."
                   data-cy="todo-task-input"
                 />
-                <div class="popup-date-btn-container">
-                  <input
-                    type="date"
-                    name="date"
-                    id="dateInput"
-                    class="date-input"
-                    data-cy="todo-date-input"
-                  />
-                  <button
-                    data-cy="save-todo"
-                    id="saveButton"
-                    class="save-button"
-                  >
-                    Spara
-                  </button>
-                </div>
+                <input
+                  type="date"
+                  name="date"
+                  id="dateInput"
+                  class="date-input"
+                  data-cy="todo-date-input"
+                />
+
                 <div class="feedback-container">
                   <div id="warning" class="warning"></div>
                   <div id="feedback" class="feedback"></div>
+                </div>
+
+                <div class="save-button-container">
+                  <button
+                    id="saveButton"
+                    class="save-button"
+                    data-cy="save-todo"
+                  >
+                    <p>Skapa ToDo</p>
+                    <p><i class="fa-solid fa-plus"></i></p>
+                  </button>
                 </div>
               </form>
             </div>

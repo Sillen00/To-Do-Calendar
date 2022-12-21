@@ -78,49 +78,19 @@ aside {
   display: none;
 }
 
-/* SKAPA TODO KNAPP ---------------------------------*/
-.create-button-div {
-  border-top: 2px solid var(--Secondary-color);
-  border-bottom: 2px solid var(--Secondary-color);
+/* TODO CREATE DIV---------------------*/
+.create-todo {
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--Primary-color);
+  border: 1px solid var(--Secondary-color);
   display: flex;
   justify-content: center;
 }
 
-.create-button-div .createButton {
-  margin: 1.5rem 0;
-  padding: 0.5rem 2rem;
-  width: 75%;
-  max-width: 16rem;
-  border-radius: 0.5rem;
-  font-size: var(--FS-1_5);
-  color: var(--Secondary-color);
-  background-color: var(--green-color1);
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* TODO POPUP---------------------*/
-.create-todo-popup {
+.create-todo input {
   width: 100%;
-  /* display: none; */
-  top: 215px;
-  left: 0;
-  margin: auto;
-  padding: 2rem;
-  background-color: var(--Primary-color);
-  border: 1px solid var(--Secondary-color);
-  z-index: 100;
-}
-
-/* .show-popup {
-  display: block;
-} */
-
-.create-todo-popup input,
-button {
+  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
   background-color: var(--grey-color);
@@ -128,38 +98,42 @@ button {
   border: 1px solid var(--Secondary-color);
 }
 
-.todo-input {
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.popup-date-btn-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.save-button {
-  color: var(--Secondary-color);
-  background-color: var(--green-color1);
-  cursor: pointer;
-}
-
 .feedback-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: var(--FS-1_2);
+  font-size: var(--FS-1);
+  margin-bottom: 0.5rem;
 }
 .feedback-container i {
   color: yellow;
   margin-right: 0.5rem;
 }
 
+.save-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.save-button-container .save-button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: var(--FS-1);
+  color: var(--Secondary-color);
+  background-color: var(--green-color1);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 /* TODO LIST------------------------------------------------------------------------------------ */
 
 .todo-list {
   overflow-y: scroll;
-  /* -webkit-filter: blur(20px); */
 }
 
 .todo-list::-webkit-scrollbar {
