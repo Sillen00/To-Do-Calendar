@@ -307,6 +307,15 @@ button {
   top: 3rem;
 }
 
+.todo-number{
+  position: absolute;
+  top:0;
+  right:0;
+  /* background-color: var(--green-color1); */
+  color: white;
+  text-decoration: underline 3px var(--green-color2) solid;
+}
+
 .padding-days {
   color: var(--grey-color);
 }
