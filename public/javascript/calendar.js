@@ -47,7 +47,9 @@ const weekdays = [
 ];
 
 async function getHolidayAPI() {
-  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${calendar.month +1}`;
+  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${
+    calendar.month + 1
+  }`;
   const response = await fetch(url);
   const result = await response.json();
 
@@ -63,7 +65,7 @@ async function getHolidayAPI() {
 }
 
 async function renderCalenderDays() {
-  let calenderUL = document.querySelector(".calendar");
+  let calenderDiv = document.querySelector(".calendar");
 
   let firstWeekDayOfMonth = new Date(
     calendar.year,
@@ -90,10 +92,12 @@ async function renderCalenderDays() {
   const now = new Date();
 
   getHolidayAPI().then((holidays) => {
-    let liTag = "";
+    let dayTag = "";
     // loop for padding days of previous month
     for (let i = firstWeekDayOfMonth; i > 0; i--) {
-      liTag += `<li class="padding-days">${lastDateOfPrevMonth - i + 1}</li>`;
+      dayTag += `<div class="padding-days">${
+        lastDateOfPrevMonth - i + 1
+      }</div>`;
     }
 
     // Itterates the current month and adds the days to the calendar
@@ -118,17 +122,17 @@ async function renderCalenderDays() {
       });
 
       if (xx[0]) {
-        holidayString = xx[0].helgdag
+        holidayString = xx[0].helgdag;
       }
 
-      liTag += `<li class="${isToday}">${i}<p>${holidayString}</p></li>`;
+      dayTag += `<div class="${isToday}">${i}<p>${holidayString}</p></div>`;
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
-      liTag += `<li class="padding-days">${i - lastDayOfMonth + 1}</li>`;
+      dayTag += `<div class="padding-days">${i - lastDayOfMonth + 1}</div>`;
     }
 
-    calenderUL.innerHTML = liTag;
+    calenderDiv.innerHTML = dayTag;
   });
 }
 
