@@ -9,7 +9,7 @@ let todos = JSON.parse(localStorage.getItem("todos")) || [];
 function initTodos() {
   addEventListeners();
   refreshTodoList();
-  togglePopup();
+  // togglePopup();
 }
 
 /** Aktiverar funktionen togglePopup vid klick av knappen på Skapa ToDo.
