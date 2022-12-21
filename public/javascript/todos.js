@@ -92,8 +92,8 @@ function refreshTodoList() {
     const deleteButton = document.createElement("button");
 
     todoContent.classList.add("todo-content");
-    todoTitle.classList.add("todo-title");
-    todoDate.classList.add("todo-date");
+    // todoTitle.classList.add("todo-title");
+    // todoDate.classList.add("todo-date");
     todoButtons.classList.add("todo-buttons");
     editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
@@ -121,8 +121,8 @@ function refreshTodoList() {
       if (editButton.textContent === "Ändra") {
         todoInput.removeAttribute("readonly");
         todoDate.removeAttribute("readonly");
-        todoInput.style.backgroundColor = "green";
-        todoDate.style.backgroundColor = "green";
+        todoInput.style.backgroundColor = "var(--green-color1)";
+        todoDate.style.backgroundColor = "var(--green-color1)";
         editButton.textContent = "Spara";
         todoInput.focus();
       } else if (editButton.textContent === "Spara") {
