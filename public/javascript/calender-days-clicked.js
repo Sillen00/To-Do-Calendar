@@ -5,7 +5,7 @@ function initCalendarDaysClicked(){
 
 /** Loopar över alla månadens dagar och ger användaren möjligheten att välja önskad dag i kalendern. */
 function selectDay() {
-  const days = document.querySelectorAll(".calendar div");
+  const days = document.querySelectorAll(".calendar li");
   for (const day of days) {
     day.addEventListener("click", activateDay);
   }
@@ -17,7 +17,7 @@ function selectDay() {
  * @param {MouseEvent} event
  */
 function activateDay(event) {
-  const activeDay = document.querySelector(".calendar div.active");
+  const activeDay = document.querySelector(".calendar li.active");
   activeDay?.classList.remove("active");
   const day = event.currentTarget;
   day.classList.add("active");

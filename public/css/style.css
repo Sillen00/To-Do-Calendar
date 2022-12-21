@@ -290,13 +290,21 @@ button {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  flex-direction: column;
+  position: relative;
+}
+
+.helgdag {
+  font-size: 0.6rem;
+  position:absolute;
+  top: 3rem;
 }
 
 .padding-days {
   color: var(--grey-color);
 }
 
-.padding-days:hover{
+.padding-days:hover {
   color: white;
 }
 
@@ -306,6 +314,11 @@ button {
 
 .active {
   border: 0.5rem solid var(--green-color1);
+}
+
+.activeDay {
+  color:var(--green-color1);
+  font-weight: bolder;
 }
 
 /* REUSABLE CLASSES */

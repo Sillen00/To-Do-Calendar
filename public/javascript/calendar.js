@@ -18,7 +18,6 @@ calendar.year = calendar.date.getFullYear();
 calendar.month = calendar.date.getMonth();
 calendar.day = calendar.date.getDate();
 
-
 /** Array with the months of the year.*/
 const months = [
   "Januari",
@@ -47,40 +46,91 @@ const weekdays = [
   "Saturday",
 ];
 
-function renderCalenderDays() {
-  let calenderUL = document.querySelector(".calendar")
+async function getHolidayAPI() {
+  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${calendar.month +1}`;
+  const response = await fetch(url);
+  const result = await response.json();
 
+  const days = result.dagar;
 
-  let firstWeekDayOfMonth = new Date(calendar.year, calendar.month, 1, - 1).getDay(); // Getting first weekday of mounth  
-  let lastDateOfMonth = new Date(calendar.year, calendar.month + 1, 0).getDate(); // Getting last date of month
-  let lastDayOfMonth = new Date(calendar.year, calendar.month, lastDateOfMonth - 1).getDay(); // Getting last date of month
-  let lastDateOfPrevMonth = new Date (calendar.year, calendar.month, 0).getDate(); // Getting last date of prev month
- 
-  let liTag = "";
-
-// loop for padding days of previous month
-  for (let i = firstWeekDayOfMonth; i > 0; i--) {
-    liTag += `<li class="padding-days">${lastDateOfPrevMonth - i + 1}</li>`;  
+  const fetchedHolidays = [];
+  for (let i = 0; i < days.length; i++) {
+    if (days[i].helgdag) {
+      fetchedHolidays.push(days[i]);
+    }
   }
-
-// Itterates the current month and adds the days to the calendar
-  for (let i = 1; i <= lastDateOfMonth; i++) {
-    let isToday = i === calendar.date.getDate() && calendar.month === new Date().getMonth() && calendar.year === new Date().getFullYear() ? "active" : "";
-    liTag += `<li class="${isToday}">${i}</li>`;
-    
-  };
-
-  // Creating li of next month first days
-  for (let i = lastDayOfMonth; i < 6; i++) {
-    liTag += `<li class="padding-days">${i - lastDayOfMonth + 1}</li>`; 
-  }
-
-  calenderUL.innerHTML= liTag;
-
+  return fetchedHolidays;
 }
 
+async function renderCalenderDays() {
+  let calenderUL = document.querySelector(".calendar");
 
+  let firstWeekDayOfMonth = new Date(
+    calendar.year,
+    calendar.month,
+    1,
+    -1
+  ).getDay(); // Getting first weekday of mounth
+  let lastDateOfMonth = new Date(
+    calendar.year,
+    calendar.month + 1,
+    0
+  ).getDate(); // Getting last date of month
+  let lastDayOfMonth = new Date(
+    calendar.year,
+    calendar.month,
+    lastDateOfMonth - 1
+  ).getDay(); // Getting last date of month
+  let lastDateOfPrevMonth = new Date(
+    calendar.year,
+    calendar.month,
+    0
+  ).getDate(); // Getting last date of prev month
 
+  const now = new Date();
+
+  getHolidayAPI().then((holidays) => {
+    let liTag = "";
+    // loop for padding days of previous month
+    for (let i = firstWeekDayOfMonth; i > 0; i--) {
+      liTag += `<li class="padding-days">${lastDateOfPrevMonth - i + 1}</li>`;
+    }
+
+    // Itterates the current month and adds the days to the calendar
+    for (let i = 1; i <= lastDateOfMonth; i++) {
+      const currentDate =
+        calendar.year +
+        "-" +
+        ("" + (calendar.month + 1)).padStart(2, "0") +
+        "-" +
+        ("" + i).padStart(2, "0");
+
+      let isToday =
+        i === calendar.day &&
+        calendar.month === now.getMonth() &&
+        calendar.year === now.getFullYear()
+          ? "activeDay"
+          : "";
+      let holidayString = "";
+
+      const xx = holidays.filter((h) => {
+        return h.datum === currentDate;
+      });
+
+      if (xx[0]) {
+        holidayString = xx[0].helgdag
+      }
+
+      liTag += `<li class="${isToday}">${i}<p>${holidayString}</p></li>`;
+    }
+    // Creating li of next month first days
+    for (let i = lastDayOfMonth; i < 6; i++) {
+      liTag += `<li class="padding-days">${i - lastDayOfMonth + 1}</li>`;
+    }
+
+    calenderUL.innerHTML = liTag;
+  });
+}
 
 /**
  * Gets the current year, month and day and displays the current month in the calendar.
@@ -115,7 +165,7 @@ function monthForward() {
     calendar.month++;
   }
   renderCalenderDays();
- 
+
   drawCurrentMonth();
 }
 
