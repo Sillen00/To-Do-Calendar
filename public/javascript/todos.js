@@ -8,7 +8,7 @@ let todos = JSON.parse(localStorage.getItem("todos")) || [];
 /** Startar funktionerna för skapandet och rendering av todo:s. */
 function initTodos() {
   addEventListeners();
-  showTodos();
+  refreshTodoList();
   togglePopup();
 }
 
@@ -26,7 +26,12 @@ function addEventListeners() {
 /** Visar / döljer popup fönstret för att skapa Todo. */
 function togglePopup() {
   const todoPopup = document.getElementById("todoPopup");
+  const warning = document.getElementById("warning");
+  const feedback = document.getElementById("feedback");
+
   todoPopup.classList.toggle("show-popup");
+  warning.textContent = "";
+  feedback.textContent = "";
 }
 
 /** Tar vara på datan som användaren skriver in vid skapandet av en todo.
@@ -36,8 +41,8 @@ function addTodoFormEventListener(event) {
   const todoInput = document.getElementById("todoInput").value;
   const dateInput = document.getElementById("dateInput").value;
   const form = document.getElementById("add-todo-form");
-  const feedback = document.getElementById("feedback");
   const warning = document.getElementById("warning");
+  const feedback = document.getElementById("feedback");
 
   if (todoInput === "" || dateInput === "") {
     warning.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
@@ -49,7 +54,6 @@ function addTodoFormEventListener(event) {
     feedback.textContent = "";
   }
 }
-
 /** Skapar ny data i ett objekt och pushar in det i arrayen (todos). */
 function createNewTodoObject(event) {
   event.preventDefault();
@@ -68,11 +72,11 @@ function createNewTodoObject(event) {
 
   event.target.reset();
 
-  showTodos();
+  refreshTodoList();
 }
 
 /** Skapar element, tillämpar klasser och renderar de skapade todo:sen. */
-function showTodos() {
+function refreshTodoList() {
   const allTodo = document.querySelector("#allTodo");
   allTodo.innerHTML = "";
 
@@ -88,16 +92,16 @@ function showTodos() {
     const deleteButton = document.createElement("button");
 
     todoContent.classList.add("todo-content");
-    todoTitle.classList.add("todo-title");
-    todoDate.classList.add("todo-date");
+    // todoTitle.classList.add("todo-title");
+    // todoDate.classList.add("todo-date");
     todoButtons.classList.add("todo-buttons");
     editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
 
-    todoContent.innerHTML = `${todo.content}`;
-    todoDate.innerHTML = `${todo.date}`;
-    editButton.innerHTML = "Ändra";
-    deleteButton.innerHTML = "Ta bort";
+    todoContent.innerHTML = `<input type="text" class="input-todo" value="${todo.content}" readonly>`;
+    todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
+    editButton.textContent = "Ändra";
+    deleteButton.textContent = "Ta bort";
 
     todoContent.appendChild(todoTitle);
     todoContent.appendChild(todoDate);
@@ -109,12 +113,42 @@ function showTodos() {
 
     allTodo.appendChild(todoItem);
 
+    // Ändrar todo.
+    editButton.addEventListener("click", (event) => {
+      const todoInput = todoContent.querySelector(".input-todo");
+      const todoDate = todoContent.querySelector(".input-date");
+
+      if (editButton.textContent === "Ändra") {
+        todoInput.removeAttribute("readonly");
+        todoDate.removeAttribute("readonly");
+        todoInput.style.backgroundColor = "var(--green-color1)";
+        todoDate.style.backgroundColor = "var(--green-color1)";
+        editButton.textContent = "Spara";
+        todoInput.focus();
+      } else if (editButton.textContent === "Spara") {
+        todo.content = todoInput.value;
+        todo.date = todoDate.value;
+
+        todos = todos.map((item, index) => {
+          if (item.id === todo.id) {
+            return todo;
+          }
+          return item;
+        });
+        // Lägger todos i LS.
+        localStorage.setItem("todos", JSON.stringify(todos));
+
+        refreshTodoList();
+        togglePopup();
+      }
+    });
+
     // Tar bort todo.
     deleteButton.addEventListener("click", () => {
       todos = todos.filter((t) => t != todo);
       // Tar bort todo:n från LS.
       localStorage.setItem("todos", JSON.stringify(todos));
-      showTodos();
+      refreshTodoList();
       togglePopup();
     });
   }

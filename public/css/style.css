@@ -216,8 +216,14 @@ button {
   width: 65%;
 }
 
-.todo-title {
+.todo-content input {
+  background-color: var(--grey-color);
+  color: var(--Secondary-color);
+  border-style: none;
   font-size: var(--FS-1);
+}
+
+.todo-title {
   margin-bottom: 0.3rem;
 }
 
@@ -268,7 +274,7 @@ button {
   grid-template-columns: repeat(7, 1fr);
   margin: 1rem 0;
 }
-.weekday{
+.weekday {
   display: flex;
   justify-content: center;
   align-items: center;
