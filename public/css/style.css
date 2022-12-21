@@ -130,6 +130,10 @@ aside {
   font-weight: 600;
 }
 
+.save-button-container i {
+  margin-left: 0.5rem;
+}
+
 /* TODO LIST------------------------------------------------------------------------------------ */
 
 .todo-list {
