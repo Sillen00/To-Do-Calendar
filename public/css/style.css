@@ -300,8 +300,9 @@ button {
   position: relative;
 }
 
-.helgdag {
-  font-size: 0.6rem;
+.helgdag-p-tag {
+  text-align: center;
+  font-size: 0.5rem;
   position:absolute;
   top: 3rem;
 }

@@ -47,7 +47,9 @@ const weekdays = [
 ];
 
 async function getHolidayAPI() {
-  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${calendar.month +1}`;
+  const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${
+    calendar.month + 1
+  }`;
   const response = await fetch(url);
   const result = await response.json();
 
@@ -111,17 +113,17 @@ async function renderCalenderDays() {
         calendar.year === now.getFullYear()
           ? "activeDay"
           : "";
-      let holidayString = "";
 
+      let holidayString = "";
       const xx = holidays.filter((h) => {
         return h.datum === currentDate;
       });
 
       if (xx[0]) {
-        holidayString = xx[0].helgdag
+        holidayString = xx[0].helgdag;
       }
-
-      liTag += `<li class="${isToday}">${i}<p>${holidayString}</p></li>`;
+      
+      liTag += `<li class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p></li>`;
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {

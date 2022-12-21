@@ -25,6 +25,10 @@
     margin: 1rem 0;
   }
 
+  .helgdag-p-tag {
+    font-size: 0.8rem;
+  }
+
   .todo-heading p {
     font-size: var(--FS-1_5);
   }
