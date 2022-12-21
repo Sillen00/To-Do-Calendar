@@ -105,7 +105,7 @@ aside {
 /* TODO POPUP---------------------*/
 .create-todo-popup {
   width: 100%;
-  display: none;
+  /* display: none; */
   top: 215px;
   left: 0;
   margin: auto;
@@ -115,9 +115,9 @@ aside {
   z-index: 100;
 }
 
-.show-popup {
+/* .show-popup {
   display: block;
-}
+} */
 
 .create-todo-popup input,
 button {
