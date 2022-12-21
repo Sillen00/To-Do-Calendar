@@ -290,7 +290,7 @@ button {
   grid-template-rows: repeat(6, 1fr);
 }
 
-.calendar li {
+.calendar div {
   height: 5rem;
   display: flex;
   justify-content: center;
@@ -302,7 +302,7 @@ button {
 
 .helgdag {
   font-size: 0.6rem;
-  position:absolute;
+  position: absolute;
   top: 3rem;
 }
 
@@ -314,7 +314,7 @@ button {
   color: white;
 }
 
-.calendar li:hover {
+.calendar div:hover {
   background-color: var(--grey-color);
 }
 
@@ -323,7 +323,7 @@ button {
 }
 
 .activeDay {
-  color:var(--green-color1);
+  color: var(--green-color1);
   font-weight: bolder;
 }
 
