@@ -92,10 +92,10 @@ async function renderCalenderDays() {
   const now = new Date();
 
   getHolidayAPI().then((holidays) => {
-    let liTag = "";
+    let dayTag = "";
     // loop for padding days of previous month
     for (let i = firstWeekDayOfMonth; i > 0; i--) {
-      liTag += `<li class="padding-days">${lastDateOfPrevMonth - i + 1}</li>`;
+      dayTag += `<div class="padding-days">${lastDateOfPrevMonth - i + 1}</div>`;
     }
 
     // Itterates the current month and adds the days to the calendar
@@ -114,6 +114,7 @@ async function renderCalenderDays() {
           ? "activeDay"
           : "";
 
+      /**Kollar om en helgdags datum matchar med dagens datum, lägger helgdagens namn i en variabel. */    
       let holidayString = "";
       const xx = holidays.filter((h) => {
         return h.datum === currentDate;
@@ -123,25 +124,22 @@ async function renderCalenderDays() {
         holidayString = xx[0].helgdag;
       }
 
-      //////////FÖRSÖK ATT KOPPLA TODO TILL KALENDERDAG.////////////////////////////////////////
+      /**Kollar om en todos datum matchar något av kalenderns datum, lägger till antal todos i en variabel. */
       let todoNumber = 0;
       for (let i = 0; i < todos.length; i++) {
-        console.log(todos[i].date);
-
         if(todos[i].date === currentDate){
           todoNumber ++;
         }
       }
-      ////////////////////////////////////////////////////////////////
       
-      liTag += `<li class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p> ${todoNumber ? '<p class="todo-number"> '+ todoNumber +' </p>': ""} </li>`;
+      dayTag += `<div class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p> ${todoNumber ? '<p class="todo-number"> '+ todoNumber +' </p>': ""} </div>`;
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
-      liTag += `<li class="padding-days">${i - lastDayOfMonth + 1}</li>`;
+      dayTag += `<div class="padding-days">${i - lastDayOfMonth + 1}</div>`;
     }
 
-    calenderUL.innerHTML = liTag;
+    calenderUL.innerHTML = dayTag;
   });
 }
 
