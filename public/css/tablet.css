@@ -29,6 +29,11 @@
     font-size: 0.8rem;
   }
 
+  .todo-number{
+    top: 5px;
+    right: 20px;
+  }
+
   .todo-heading p {
     font-size: var(--FS-1_5);
   }

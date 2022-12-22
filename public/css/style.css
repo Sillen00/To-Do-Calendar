@@ -311,9 +311,11 @@ button {
   position: absolute;
   top:0;
   right:0;
-  /* background-color: var(--green-color1); */
+  background-color: var(--green-color1);
+  padding: 1px 5px;
+  font-weight: bold;
+  border-radius: 99999rem;
   color: white;
-  text-decoration: underline 3px var(--green-color2) solid;
 }
 
 .padding-days {

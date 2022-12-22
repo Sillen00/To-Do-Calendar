@@ -124,17 +124,17 @@ async function renderCalenderDays() {
       }
 
       //////////FÖRSÖK ATT KOPPLA TODO TILL KALENDERDAG.////////////////////////////////////////
-      let todoNumber = "";
+      let todoNumber = 0;
       for (let i = 0; i < todos.length; i++) {
         console.log(todos[i].date);
 
         if(todos[i].date === currentDate){
-          todoNumber = todos[i].date[0];
+          todoNumber ++;
         }
       }
       ////////////////////////////////////////////////////////////////
       
-      liTag += `<li class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p> <p class="todo-number">${todoNumber}</p> </li>`;
+      liTag += `<li class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p> ${todoNumber ? '<p class="todo-number"> '+ todoNumber +' </p>': ""} </li>`;
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
