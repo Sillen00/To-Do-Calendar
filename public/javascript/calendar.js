@@ -93,8 +93,8 @@ async function renderCalenderDays() {
   const now = new Date();
 
   getHolidayAPI().then((holidays) => {
-    let dayTag = "";
     let dayDiv = [];
+
     // loop for padding days of previous month
     for (let i = firstWeekDayOfMonth; i > 0; i--) {
 
@@ -102,7 +102,6 @@ async function renderCalenderDays() {
       div.className = "padding-days";
       div.textContent= lastDateOfPrevMonth - i + 1;
       dayDiv.push(div);
-      // dayTag += `<div class="padding-days">${lastDateOfPrevMonth - i + 1}</div>`;
     }
 
     // Itterates the current month and adds the days to the calendar
@@ -143,22 +142,22 @@ async function renderCalenderDays() {
       const div = document.createElement("div")
       div.className = isToday;
       div.textContent= i;
+
       if(todoNumber){
-      const div2 = document.createElement("div")
-      div2.className = "todo-number";
-      div2.textContent = todoNumber;
-      div.append(div2)
+        const div2 = document.createElement("div")
+        div2.className = "todo-number";
+        div2.textContent = todoNumber;
+        div.append(div2)
       }
+      
       dayDiv.push(div);
       
       
-      dayTag += `<div class="${isToday}">${i}${todoNumber?'<div class="todo-number">'+todoNumber+'</div>':""}</div>`;
+      // dayTag += `<div class="${isToday}">${i}${todoNumber?'<div class="todo-number">'+todoNumber+'</div>':""}</div>`;
 
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
-      // dayTag += `<div class="padding-days">${i - lastDayOfMonth + 1}</div>`;
-
       const div = document.createElement("div")
       div.className = "padding-days";
       div.textContent= i - lastDayOfMonth + 1;
@@ -166,7 +165,6 @@ async function renderCalenderDays() {
     }
 
     calenderDiv.append(...dayDiv);
-    // calenderDiv.innerHTML = dayTag;
   });
 }
 
