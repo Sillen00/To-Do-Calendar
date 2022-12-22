@@ -98,10 +98,13 @@ function refreshTodoList() {
     editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
 
-    todoContent.innerHTML = `<input type="text" class="input-todo" value="${todo.content}" readonly>`;
-    todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
+    // todoContent.innerHTML = `<input type="text" class="input-todo" value="${todo.content}" readonly>`;
+    todoContent.innerHTML = `<p>${todo.content}</p>`;
+    todoDate.innerHTML = `<p>${todo.date}</p>`;
+    // todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
     editButton.textContent = "Ändra";
     deleteButton.textContent = "Ta bort";
+    deleteButton.setAttribute("data-cy", "delete-todo-button");
 
     todoContent.appendChild(todoTitle);
     todoContent.appendChild(todoDate);

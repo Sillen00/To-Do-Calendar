@@ -21,7 +21,7 @@ _Skiss att utgå ifrån till er layout (vissa delar så som väder och bilder be
 <H3>Lista av data-cy som ska finnas i koden</H3>
 
 1. Välkomstsegment: data-cy="welcome-segment"
-2. Lista över alla todo: data-cy="todo-list”
+2. Lista över alla todo: data-cy="todo-list"
 3. Div:n som innehåller alla dagarna i en månad: data-cy="calendar-body"
 4. Input-fältet för datumet till en ny todo: data-cy="todo-date-input"
 5. Input-fältet för todo detalj: data-cy="todo-task-input"
