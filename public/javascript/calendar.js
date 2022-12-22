@@ -65,7 +65,7 @@ async function getHolidayAPI() {
 }
 
 async function renderCalenderDays() {
-  let calenderUL = document.querySelector(".calendar");
+  let calenderDiv = document.querySelector(".calendar");
 
   let firstWeekDayOfMonth = new Date(
     calendar.year,
@@ -95,6 +95,7 @@ async function renderCalenderDays() {
     let dayTag = "";
     // loop for padding days of previous month
     for (let i = firstWeekDayOfMonth; i > 0; i--) {
+
       dayTag += `<div class="padding-days">${lastDateOfPrevMonth - i + 1}</div>`;
     }
 
@@ -124,6 +125,7 @@ async function renderCalenderDays() {
         holidayString = xx[0].helgdag;
       }
 
+
       /**Kollar om en todos datum matchar något av kalenderns datum, lägger till antal todos i en variabel. */
       let todoNumber = 0;
       for (let i = 0; i < todos.length; i++) {
@@ -133,13 +135,15 @@ async function renderCalenderDays() {
       }
       
       dayTag += `<div class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p> ${todoNumber ? '<p class="todo-number"> '+ todoNumber +' </p>': ""} </div>`;
+
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
       dayTag += `<div class="padding-days">${i - lastDayOfMonth + 1}</div>`;
     }
 
-    calenderUL.innerHTML = dayTag;
+
+    calenderDiv.innerHTML = dayTag;
   });
 }
 

@@ -9,29 +9,14 @@ let todos = JSON.parse(localStorage.getItem("todos")) || [];
 function initTodos() {
   addEventListeners();
   refreshTodoList();
-  // togglePopup();
 }
 
-/** Aktiverar funktionen togglePopup vid klick av knappen på Skapa ToDo.
+/**
  * Spara-knappen leder vidare till addTodoFormEventListener.
  */
 function addEventListeners() {
-  const createTodoButton = document.getElementById("createTodoButton");
-  createTodoButton.addEventListener("click", togglePopup);
-
   const saveTodoButton = document.getElementById("saveButton");
   saveTodoButton.addEventListener("click", addTodoFormEventListener);
-}
-
-/** Visar / döljer popup fönstret för att skapa Todo. */
-function togglePopup() {
-  const todoPopup = document.getElementById("todoPopup");
-  const warning = document.getElementById("warning");
-  const feedback = document.getElementById("feedback");
-
-  todoPopup.classList.toggle("show-popup");
-  warning.textContent = "";
-  feedback.textContent = "";
 }
 
 /** Tar vara på datan som användaren skriver in vid skapandet av en todo.
@@ -99,10 +84,13 @@ function refreshTodoList() {
     editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
 
-    todoContent.innerHTML = `<input type="text" class="input-todo" value="${todo.content}" readonly>`;
-    todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
+    // todoContent.innerHTML = `<input type="text" class="input-todo" value="${todo.content}" readonly>`;
+    todoContent.innerHTML = `<p>${todo.content}</p>`;
+    todoDate.innerHTML = `<p>${todo.date}</p>`;
+    // todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
     editButton.textContent = "Ändra";
     deleteButton.textContent = "Ta bort";
+    deleteButton.setAttribute("data-cy", "delete-todo-button");
 
     todoContent.appendChild(todoTitle);
     todoContent.appendChild(todoDate);
@@ -140,7 +128,6 @@ function refreshTodoList() {
         localStorage.setItem("todos", JSON.stringify(todos));
 
         refreshTodoList();
-        togglePopup();
       }
     });
 
@@ -150,8 +137,6 @@ function refreshTodoList() {
       // Tar bort todo:n från LS.
       localStorage.setItem("todos", JSON.stringify(todos));
       refreshTodoList();
-      togglePopup();
     });
   }
-  togglePopup();
 }
