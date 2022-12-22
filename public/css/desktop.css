@@ -27,7 +27,8 @@
   .todo {
     width: auto;
   }
+  
   .todo-container {
-    display: block;
+     min-height: 50vh;
   }
 }
