@@ -58,6 +58,7 @@ function createNewTodoObject(event) {
   event.target.reset();
 
   refreshTodoList();
+  renderCalenderDays();
 }
 
 /** Skapar element, tillämpar klasser och renderar de skapade todo:sen. */

@@ -95,9 +95,8 @@ async function renderCalenderDays() {
     let dayTag = "";
     // loop for padding days of previous month
     for (let i = firstWeekDayOfMonth; i > 0; i--) {
-      dayTag += `<div class="padding-days">${
-        lastDateOfPrevMonth - i + 1
-      }</div>`;
+
+      dayTag += `<div class="padding-days">${lastDateOfPrevMonth - i + 1}</div>`;
     }
 
     // Itterates the current month and adds the days to the calendar
@@ -115,8 +114,9 @@ async function renderCalenderDays() {
         calendar.year === now.getFullYear()
           ? "activeDay"
           : "";
-      let holidayString = "";
 
+      /**Kollar om en helgdags datum matchar med dagens datum, lägger helgdagens namn i en variabel. */    
+      let holidayString = "";
       const xx = holidays.filter((h) => {
         return h.datum === currentDate;
       });
@@ -125,12 +125,23 @@ async function renderCalenderDays() {
         holidayString = xx[0].helgdag;
       }
 
-      dayTag += `<div class="${isToday}">${i}<p>${holidayString}</p></div>`;
+
+      /**Kollar om en todos datum matchar något av kalenderns datum, lägger till antal todos i en variabel. */
+      let todoNumber = 0;
+      for (let i = 0; i < todos.length; i++) {
+        if(todos[i].date === currentDate){
+          todoNumber ++;
+        }
+      }
+      
+      dayTag += `<div class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p> ${todoNumber ? '<p class="todo-number"> '+ todoNumber +' </p>': ""} </div>`;
+
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
       dayTag += `<div class="padding-days">${i - lastDayOfMonth + 1}</div>`;
     }
+
 
     calenderDiv.innerHTML = dayTag;
   });

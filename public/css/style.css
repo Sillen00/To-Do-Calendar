@@ -278,10 +278,23 @@ aside {
   position: relative;
 }
 
-.helgdag {
-  font-size: 0.6rem;
-  position: absolute;
+
+.helgdag-p-tag {
+  text-align: center;
+  font-size: 0.5rem;
+  position:absolute;
   top: 3rem;
+}
+
+.todo-number{
+  position: absolute;
+  top:0;
+  right:0;
+  background-color: var(--green-color1);
+  padding: 1px 5px;
+  font-weight: bold;
+  border-radius: 99999rem;
+  color: white;
 }
 
 .padding-days {
