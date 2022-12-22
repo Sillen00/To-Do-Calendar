@@ -286,12 +286,13 @@ aside {
   top: 3rem;
 }
 
-.todo-number{
+.calendar .todo-number{
   position: absolute;
   top:0;
   right:0;
+  height: 25%;
   background-color: var(--green-color1);
-  padding: 1px 5px;
+  padding: 0px 5px;
   font-weight: bold;
   border-radius: 99999rem;
   color: white;
