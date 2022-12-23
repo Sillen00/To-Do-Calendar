@@ -66,6 +66,7 @@ async function getHolidayAPI() {
 
 async function renderCalenderDays() {
   let calenderDiv = document.querySelector(".calendar");
+  calenderDiv.innerHTML = "";
 
   let firstWeekDayOfMonth = new Date(
     calendar.year,
@@ -92,15 +93,20 @@ async function renderCalenderDays() {
   const now = new Date();
 
   getHolidayAPI().then((holidays) => {
-    let dayTag = "";
+    let dayDivs = [];
+
     // loop for padding days of previous month
     for (let i = firstWeekDayOfMonth; i > 0; i--) {
 
-      dayTag += `<div class="padding-days">${lastDateOfPrevMonth - i + 1}</div>`;
+      const div = document.createElement("div")
+      div.className = "padding-days";
+      div.textContent= lastDateOfPrevMonth - i + 1;
+      dayDivs.push(div);
     }
 
     // Itterates the current month and adds the days to the calendar
     for (let i = 1; i <= lastDateOfMonth; i++) {
+      //Tar fram dagens datum med 0,or om det inte finns tex: 2022-12-"0"2
       const currentDate =
         calendar.year +
         "-" +
@@ -108,6 +114,7 @@ async function renderCalenderDays() {
         "-" +
         ("" + i).padStart(2, "0");
 
+      //Sätter klassen "activeDay" på diven som har samma datum som dagens datum.
       let isToday =
         i === calendar.day &&
         calendar.month === now.getMonth() &&
@@ -120,30 +127,52 @@ async function renderCalenderDays() {
       const xx = holidays.filter((h) => {
         return h.datum === currentDate;
       });
-
       if (xx[0]) {
         holidayString = xx[0].helgdag;
       }
 
-
-      /**Kollar om en todos datum matchar något av kalenderns datum, lägger till antal todos i en variabel. */
+      /**Kollar om en todos datum matchar något av kalenderns datum, lägger till antal todos i en variabel. 
+       * "todos" arrayen kommer från "todos.js" 
+      */
       let todoNumber = 0;
       for (let i = 0; i < todos.length; i++) {
         if(todos[i].date === currentDate){
           todoNumber ++;
         }
       }
-      
-      dayTag += `<div class="${isToday}">${i}<p class="helgdag-p-tag">${holidayString}</p> ${todoNumber ? '<p class="todo-number"> '+ todoNumber +' </p>': ""} </div>`;
 
+      const divTag = document.createElement("div")
+      divTag.className = isToday;
+      divTag.textContent= i;
+
+      if(todoNumber){
+        const div2 = document.createElement("div")
+        div2.className = "todo-number";
+        div2.textContent = todoNumber;
+        divTag.append(div2)
+      }
+      dayDivs.push(divTag);
+      
+
+      if(holidayString){
+        const p = document.createElement("p")
+        p.className = "helgdag-p-tag";
+        p.textContent= holidayString;
+        divTag.append(p)
+      }
+      dayDivs.push(divTag);
+
+      // dayTag += `<div class="${isToday}">${i}   <p class="helgdag-p-tag">${holidayString}</p>    ${todoNumber?'<div class="todo-number">'+todoNumber+'</div>':""}</div>`;
     }
     // Creating li of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
-      dayTag += `<div class="padding-days">${i - lastDayOfMonth + 1}</div>`;
+      const div = document.createElement("div")
+      div.className = "padding-days";
+      div.textContent= i - lastDayOfMonth + 1;
+      dayDivs.push(div);
     }
 
-
-    calenderDiv.innerHTML = dayTag;
+    calenderDiv.append(...dayDivs);
   });
 }
 

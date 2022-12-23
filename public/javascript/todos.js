@@ -78,8 +78,6 @@ function refreshTodoList() {
     const deleteButton = document.createElement("button");
 
     todoContent.classList.add("todo-content");
-    // todoTitle.classList.add("todo-title");
-    // todoDate.classList.add("todo-date");
     todoButtons.classList.add("todo-buttons");
     editButton.classList.add("todo-button-edit");
     deleteButton.classList.add("todo-button-delete");
@@ -88,8 +86,10 @@ function refreshTodoList() {
     todoContent.innerHTML = `<p>${todo.content}</p>`;
     todoDate.innerHTML = `<p>${todo.date}</p>`;
     // todoDate.innerHTML = `<input type="date" class="input-date" value="${todo.date}" readonly>`;
+
     editButton.textContent = "Ändra";
     deleteButton.textContent = "Ta bort";
+    editButton.setAttribute("data-cy", "edit-todo-button")
     deleteButton.setAttribute("data-cy", "delete-todo-button");
 
     todoContent.appendChild(todoTitle);
@@ -137,6 +137,7 @@ function refreshTodoList() {
       // Tar bort todo:n från LS.
       localStorage.setItem("todos", JSON.stringify(todos));
       refreshTodoList();
+      renderCalenderDays();
     });
   }
 }
