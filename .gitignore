@@ -4,4 +4,3 @@ dist
 cypress/videos
 cypress/screenshots
 cypress/@plugga-tech
-.npmrc
