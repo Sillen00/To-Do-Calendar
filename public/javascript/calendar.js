@@ -1,3 +1,4 @@
+/** Initialize starting function. */
 function initCalendar() {
   renderCalenderDays();
   calenderInfo();
@@ -43,6 +44,7 @@ const weekdays = [
   "Saturday",
 ];
 
+/** Getting API Holidays */
 async function getHolidayAPI() {
   const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${
     calendar.month + 1
@@ -61,6 +63,7 @@ async function getHolidayAPI() {
   return fetchedHolidays;
 }
 
+/** Render days to calendar with holidays and current todos on day. */
 async function renderCalenderDays() {
   let calenderDiv = document.querySelector(".calendar");
   calenderDiv.innerHTML = "";
@@ -156,10 +159,8 @@ async function renderCalenderDays() {
         divTag.append(p);
       }
       dayDivs.push(divTag);
-
-      // dayTag += `<div class="${isToday}">${i}   <p class="helgdag-p-tag">${holidayString}</p>    ${todoNumber?'<div class="todo-number">'+todoNumber+'</div>':""}</div>`;
     }
-    // Creating li of next month first days
+    // Creating div of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
       const div = document.createElement("div");
       div.className = "padding-days";

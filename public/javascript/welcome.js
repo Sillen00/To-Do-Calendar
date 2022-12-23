@@ -1,3 +1,4 @@
+/** Initialize starting function. */
 function initWelcome() {
   showCurrentDay();
   setInterval(showCurrentDay, 1000);
