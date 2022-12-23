@@ -83,7 +83,8 @@ aside {
   width: 100%;
   padding: 2rem;
   background-color: var(--Primary-color);
-  border: 1px solid var(--Secondary-color);
+  border-top: 2px solid var(--Secondary-color);
+  border-bottom: 2px solid var(--Secondary-color);
   display: flex;
   justify-content: center;
 }
@@ -162,7 +163,6 @@ aside {
   align-items: center;
   border-bottom: 2px solid var(--Secondary-color);
   padding: 0.5rem;
-  margin-bottom: 5px;
 }
 
 .no-top-border {
@@ -274,22 +274,20 @@ aside {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  flex-direction: column;
   position: relative;
 }
-
 
 .helgdag-p-tag {
   text-align: center;
   font-size: 0.5rem;
-  position:absolute;
+  position: absolute;
   top: 3rem;
 }
 
-.calendar .todo-number{
+.calendar .todo-number {
   position: absolute;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   height: 25%;
   background-color: var(--green-color1);
   padding: 0px 5px;
