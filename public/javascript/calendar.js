@@ -1,12 +1,10 @@
-// window.addEventListener("DOMContentLoaded", initCalendar);
-
+/** Initialize starting function. */
 function initCalendar() {
   renderCalenderDays();
   calenderInfo();
 }
 
 /** Creates an object with the current date, year, month and day. */
-
 let calendar = {
   date: new Date(),
   year: null,
@@ -46,6 +44,7 @@ const weekdays = [
   "Saturday",
 ];
 
+/** Getting API Holidays */
 async function getHolidayAPI() {
   const url = `https://sholiday.faboul.se/dagar/v2.1/${calendar.year}/${
     calendar.month + 1
@@ -64,6 +63,7 @@ async function getHolidayAPI() {
   return fetchedHolidays;
 }
 
+/** Render days to calendar with holidays and current todos on day. */
 async function renderCalenderDays() {
   let calenderDiv = document.querySelector(".calendar");
   calenderDiv.innerHTML = "";
@@ -97,10 +97,9 @@ async function renderCalenderDays() {
 
     // loop for padding days of previous month
     for (let i = firstWeekDayOfMonth; i > 0; i--) {
-
-      const div = document.createElement("div")
+      const div = document.createElement("div");
       div.className = "padding-days";
-      div.textContent= lastDateOfPrevMonth - i + 1;
+      div.textContent = lastDateOfPrevMonth - i + 1;
       dayDivs.push(div);
     }
 
@@ -122,7 +121,7 @@ async function renderCalenderDays() {
           ? "activeDay"
           : "";
 
-      /**Kollar om en helgdags datum matchar med dagens datum, lägger helgdagens namn i en variabel. */    
+      /**Kollar om en helgdags datum matchar med dagens datum, lägger helgdagens namn i en variabel. */
       let holidayString = "";
       const xx = holidays.filter((h) => {
         return h.datum === currentDate;
@@ -131,44 +130,41 @@ async function renderCalenderDays() {
         holidayString = xx[0].helgdag;
       }
 
-      /**Kollar om en todos datum matchar något av kalenderns datum, lägger till antal todos i en variabel. 
-       * "todos" arrayen kommer från "todos.js" 
-      */
+      /**Kollar om en todos datum matchar något av kalenderns datum, lägger till antal todos i en variabel.
+       * "todos" arrayen kommer från "todos.js"
+       */
       let todoNumber = 0;
       for (let i = 0; i < todos.length; i++) {
-        if(todos[i].date === currentDate){
-          todoNumber ++;
+        if (todos[i].date === currentDate) {
+          todoNumber++;
         }
       }
 
-      const divTag = document.createElement("div")
+      const divTag = document.createElement("div");
       divTag.className = isToday;
-      divTag.textContent= i;
+      divTag.textContent = i;
 
-      if(todoNumber){
-        const div2 = document.createElement("div")
+      if (todoNumber) {
+        const div2 = document.createElement("div");
         div2.className = "todo-number";
         div2.textContent = todoNumber;
-        divTag.append(div2)
+        divTag.append(div2);
       }
       dayDivs.push(divTag);
-      
 
-      if(holidayString){
-        const p = document.createElement("p")
+      if (holidayString) {
+        const p = document.createElement("p");
         p.className = "helgdag-p-tag";
-        p.textContent= holidayString;
-        divTag.append(p)
+        p.textContent = holidayString;
+        divTag.append(p);
       }
       dayDivs.push(divTag);
-
-      // dayTag += `<div class="${isToday}">${i}   <p class="helgdag-p-tag">${holidayString}</p>    ${todoNumber?'<div class="todo-number">'+todoNumber+'</div>':""}</div>`;
     }
-    // Creating li of next month first days
+    // Creating div of next month first days
     for (let i = lastDayOfMonth; i < 6; i++) {
-      const div = document.createElement("div")
+      const div = document.createElement("div");
       div.className = "padding-days";
-      div.textContent= i - lastDayOfMonth + 1;
+      div.textContent = i - lastDayOfMonth + 1;
       dayDivs.push(div);
     }
 

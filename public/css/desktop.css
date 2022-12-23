@@ -13,22 +13,28 @@
     flex-direction: row;
   }
 
-  aside {
-    width: 30%;
-    min-width: 360px;
-    border: 2px solid var(--Secondary-color);
-  }
-
   main {
     display: block;
     width: 70%;
   }
 
+  .calendar .todo-number {
+    top: 8px;
+    right: 20px;
+  }
+
+  aside {
+    width: 30%;
+    min-width: 360px;
+    border-right: 2px solid var(--Secondary-color);
+    border-left: 2px solid var(--Secondary-color);
+  }
+
   .todo {
     width: 95%;
   }
-  
+
   .todo-container {
-     min-height: 50vh;
+    min-height: 50vh;
   }
 }
